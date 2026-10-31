@@ -1,0 +1,17 @@
+name: Rename full hub
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename full.html to index.html
+        run: |
+          git config user.name "thecryptonightt-hub"
+          git config user.email "thecryptonightt-hub@users.noreply.github.com"
+          git mv full/full.html full/index.html
+          git commit -m "Publish Picture Flash cover and banner update: replace full hub"
+          git push
