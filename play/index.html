@@ -884,7 +884,7 @@
 #scr-cards#scr-cards .hdr-spacer{display:none}
 #scr-cards#scr-cards header h1{font-size:24px;margin:0}
 #scr-cards#scr-cards.showing-game header h1{color:#FFE600;text-shadow:0 0 10px rgba(255,230,0,.95),0 0 26px rgba(255,230,0,.55)}
-#scr-cards#scr-cards #cm-motionToggle{height:44px;padding:0 14px;border-radius:12px;border:2px solid #14213D;background:#fff;color:#14213D;font-weight:800;font-size:15px;cursor:pointer;white-space:nowrap}
+#scr-cards#scr-cards #cm-motionToggle{height:44px;padding:0 14px;border-radius:12px;border:2px solid #14213D;background:#fff;font-weight:800;font-size:15px;cursor:pointer;white-space:nowrap}
 #scr-cards#scr-cards .cover-stage, #scr-cards#scr-cards #cm-stage{position:relative;overflow:hidden;border-radius:18px}
 #scr-cards#scr-cards .cover-stage{padding:14px 12px 16px;margin-top:10px}
 #scr-cards#scr-cards #cm-stage{padding:10px 10px 14px;margin-top:10px}
@@ -920,10 +920,10 @@
 #scr-cards#scr-cards .letter-keys{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:8px 0}
 #scr-cards#scr-cards .lkey{height:44px;min-width:0;padding:1px 6px;font-size:16px;font-weight:800;border:2px solid #7B2FF7;border-radius:10px;background:linear-gradient(180deg,#F3E8FF,#D9B8FF);color:#14213D;cursor:pointer;box-shadow:0 0 8px rgba(123,47,247,.35)}
 #scr-cards#scr-cards .controls{display:flex;gap:8px;margin:10px 0}
-#scr-cards#scr-cards .controls button{flex:1;height:44px;border-radius:12px;border:2px solid #E3C6FF;background:linear-gradient(180deg,#C79BFF,#7B2FF7);color:#fff;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 0 12px rgba(123,47,247,.5)}
+#scr-cards#scr-cards .controls button{flex:1;height:44px;border-radius:12px;border:2px solid #E3C6FF;background:linear-gradient(180deg,#5F4A5B,#503556);color:#fff;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 0 12px rgba(123,47,247,.5)}
 #scr-cards#scr-cards .controls button.active{background:linear-gradient(180deg,#7DD7FF,#00A8FF);color:#fff;box-shadow:0 0 0 3px #FFE600,0 0 20px rgba(0,168,255,.85)}
 #scr-cards#scr-cards .stats{display:flex;gap:10px;flex-wrap:wrap;font-weight:700;font-size:14px;margin:6px 0;color:#FFFFFF;text-shadow:0 1px 4px rgba(0,0,0,.45)}
-#scr-cards#scr-cards .howto{font-size:13px;margin:4px 0 0;color:#D6ECFF;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+#scr-cards#scr-cards .howto{font-size:13px;margin:4px 0 0;color:#FFFFFF;text-shadow:0 1px 4px rgba(0,0,0,.4)}
 #scr-cards#scr-cards #board{position:relative;z-index:2;display:grid;gap:8px;margin-top:6px;padding:0 2px}
 #scr-cards#scr-cards #board.hardfit{max-width:228px;margin-left:auto;margin-right:auto}
 #scr-cards#scr-cards .card{position:relative;aspect-ratio:3/3.4;cursor:pointer;perspective:600px}
@@ -1008,6 +1008,15 @@
 #scr-cards#scr-cards.showing-game header h1{flex:1;min-width:0;text-align:center}
 #scr-cards#scr-cards.showing-game header #cm-motionToggle{display:inline-block;flex:none;height:32px;padding:0 6px;font-size:11px;border-radius:10px}
 #scr-cards#scr-cards.showing-game .ms-namerow{margin-top:2px}
+/* v11 (2026-10-31): black gameplay background pattern (Picture Flash v11 pattern).
+   COLOR-ONLY change: every rule scoped to body.showing-game, so the cover screen
+   is pixel-identical. Gameplay background completely black; gameplay text white;
+   Motion pill text explicit dark (it inherits body color, which is now white);
+   win/board card text explicit dark on their white cards (same fix as PF v11). */
+#scr-cards#scr-cards.showing-game #cm-motionToggle{color:#14213D}
+#scr-cards#scr-cards.showing-game{background-color:#000000;background-image:none;color:#FFFFFF}
+#scr-cards#scr-cards.showing-game #cm-motionToggle{color:#14213D}
+
 #scr-pictures#scr-pictures *{box-sizing:border-box}
 #scr-pictures#scr-pictures{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background-color:#000000;background-image:none;color:#FFFFFF;padding-bottom:28px}
 #scr-pictures#scr-pictures{max-width:480px;margin:0 auto;padding:12px}
@@ -1111,18 +1120,26 @@
 #scr-cards{min-height:100vh}
 #scr-pictures{min-height:100vh}
 
-
-/* LIVE TWO-GAME FIX 2026-10-31: Card Match v11 black-gameplay, COLOR-ONLY, scoped to #scr-cards.showing-game.
-   Cover is unchanged: this block only applies when the game screen is showing (cover has no .showing-game,
-   and .controls/.howto are gameplay-only elements). Picture Flash already matches v11 in the base — no PF change.
-   Shared overlays (.win-card/.ms-board-card) are untouched: in the hub they sit on white cards with dark text already,
-   unlike the standalone where body color turned white and needed an explicit dark override. */
-#scr-cards#scr-cards.showing-game{background-color:#000000;background-image:none;color:#FFFFFF}
-#scr-cards#scr-cards.showing-game .controls button{background:linear-gradient(180deg,#5F4A5B,#503556)}
-#scr-cards#scr-cards.showing-game .controls button.active{background:linear-gradient(180deg,#7DD7FF,#00A8FF);color:#fff;box-shadow:0 0 0 3px #FFE600,0 0 20px rgba(0,168,255,.85)}
-#scr-cards#scr-cards.showing-game .howto{color:#FFFFFF}
-#scr-cards#scr-cards.showing-game #cm-motionToggle{color:#14213D}
-
+/* LIVE APPROVED CARD MATCH 2026-10-31: geometry tie-break, Card Match only.
+   Scoped to #scr-cards.showing-game so the cover is untouched. Fixes the two
+   collisions seen on Bryan's phone: difficulty buttons wrap to two lines in
+   his viewer, so a fixed 42px height overflowed onto the Moves line; and the
+   hub's own #board sky background covered the balloon stage picture.
+   Height:auto + min-height lets wrapped button text fit inside the button,
+   so the flow below it moves down instead of overlapping. */
+#scr-cards#scr-cards.showing-game{width:100%;max-width:520px;padding:0 12px 28px;box-sizing:border-box}
+#scr-cards#scr-cards.showing-game header{width:100%}
+#scr-cards#scr-cards.showing-game #cm-game{width:100%;max-width:480px;margin:0 auto;padding:0;box-sizing:border-box}
+#scr-cards#scr-cards.showing-game .ms-namerow{width:100%}
+#scr-cards#scr-cards.showing-game .controls{width:100%;display:flex;gap:6px;margin:4px 0 10px}
+#scr-cards#scr-cards.showing-game .controls button{height:auto;min-height:48px;padding:10px 6px;line-height:1.25;display:flex;align-items:center;justify-content:center;text-align:center;white-space:normal;overflow:visible;background:linear-gradient(180deg,#5F4A5B,#503556);color:#FFFFFF}
+#scr-cards#scr-cards.showing-game .controls button.active{background:linear-gradient(180deg,#7DD7FF,#00A8FF);color:#FFFFFF}
+#scr-cards#scr-cards.showing-game .stats{width:100%;margin:10px 0 4px;color:#FFFFFF}
+#scr-cards#scr-cards.showing-game .howto{width:100%;color:#FFFFFF}
+#scr-cards#scr-cards.showing-game #cm-stage{background:transparent}
+#scr-cards#scr-cards.showing-game #board{background:none !important;box-shadow:none;padding:0 2px;width:100%;box-sizing:border-box}
+#scr-cards#scr-cards.showing-game .btnrow{width:100%;margin:14px 0 28px;padding-bottom:4px}
+#scr-cards#scr-cards.showing-game .btnrow .big-btn{height:auto;min-height:48px;padding:12px 10px;line-height:1.25;text-align:center}
 </style>
 </head>
 <body>
@@ -1192,7 +1209,7 @@
   </section>
 
   <!-- CARD MATCH -->
-    <section class="screen" id="scr-cards">
+      <section class="screen" id="scr-cards">
     <button class="back" data-back>← All games</button>
     <header><button id="cm-motionToggle" type="button">Motion: ON</button><h1>🃏 Card Match</h1></header>
 <section id="cm-cover">
@@ -1841,7 +1858,7 @@
     return function(){ cancelAnimationFrame(raf); wrapEl.style.display = "none"; };
   }
 
-  /* ================= CARD MATCH (merged from graphics review v10) ================= */
+  /* ================= CARD MATCH (merged from graphics review v11 — approved, black gameplay) ================= */
 /* ---------- Tap sound + vibration (guarded) ---------- */
   var actx=null;
   function blip(){
