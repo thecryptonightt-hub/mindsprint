@@ -1106,6 +1106,18 @@
 #scr-cards{min-height:100vh}
 #scr-pictures{min-height:100vh}
 
+
+/* LIVE TWO-GAME FIX 2026-10-31: Card Match v11 black-gameplay, COLOR-ONLY, scoped to #scr-cards.showing-game.
+   Cover is unchanged: this block only applies when the game screen is showing (cover has no .showing-game,
+   and .controls/.howto are gameplay-only elements). Picture Flash already matches v11 in the base — no PF change.
+   Shared overlays (.win-card/.ms-board-card) are untouched: in the hub they sit on white cards with dark text already,
+   unlike the standalone where body color turned white and needed an explicit dark override. */
+#scr-cards#scr-cards.showing-game{background-color:#000000;background-image:none;color:#FFFFFF}
+#scr-cards#scr-cards.showing-game .controls button{background:linear-gradient(180deg,#5F4A5B,#503556)}
+#scr-cards#scr-cards.showing-game .controls button.active{background:linear-gradient(180deg,#7DD7FF,#00A8FF);color:#fff;box-shadow:0 0 0 3px #FFE600,0 0 20px rgba(0,168,255,.85)}
+#scr-cards#scr-cards.showing-game .howto{color:#FFFFFF}
+#scr-cards#scr-cards.showing-game #cm-motionToggle{color:#14213D}
+
 </style>
 </head>
 <body>
