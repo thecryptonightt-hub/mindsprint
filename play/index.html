@@ -1181,6 +1181,23 @@ body:has(#scr-cards.showing-game)>footer .cta a{color:#4DC3FF}
 #scr-cards#scr-cards.showing-game #board{background:none !important;box-shadow:none;padding:0 2px;width:100%;box-sizing:border-box;margin-top:2px}
 #scr-cards#scr-cards.showing-game .btnrow{width:100%;display:flex;gap:10px;justify-content:stretch;margin:10px 0 0;padding-bottom:0;background-color:#000000;background-image:none}
 #scr-cards#scr-cards.showing-game .btnrow .big-btn{flex:1 1 0;min-width:0;height:48px;min-height:48px;padding:0 8px;font-size:16px;border-radius:12px;text-align:center}
+
+/* V2 FIX 2026-10-31: Card Match gameplay fills the viewport like the standalone prototype.
+   Previous e206fc7 fix relied on body:has() and left hub header/footer/Music in the DOM,
+   so a viewer that ignores :has (or a cached render) still showed sky edges, footer, Music,
+   a narrow 520px column, and dark stats numbers. This block is driven by a body class
+   added by cmEnterGame() itself, so it does NOT depend on :has.
+   Scoped ONLY to body.cm-full-game (Card Match gameplay). Cover/menu/other games untouched. */
+body.cm-full-game{margin:0 !important;padding:0 !important;background:#000000 !important;background-image:none !important;color:#FFFFFF !important;display:block !important;align-items:stretch !important;min-height:100dvh !important;}
+body.cm-full-game>header{display:none !important;}
+body.cm-full-game>footer{display:none !important;}
+body.cm-full-game #scr-cards,body.cm-full-game #scr-cards.showing-game{width:100% !important;max-width:none !important;margin:0 !important;padding:6px 8px 0 !important;min-height:100dvh !important;background:#000000 !important;background-image:none !important;color:#FFFFFF !important;overflow-x:hidden !important;box-sizing:border-box !important;}
+body.cm-full-game #scr-cards>button.back[data-back]{display:none !important;}
+body.cm-full-game #scr-cards .ms-music-btn{display:none !important;}
+body.cm-full-game #scr-cards.showing-game #cm-game,body.cm-full-game #scr-cards.showing-game header,body.cm-full-game #scr-cards.showing-game .ms-namerow,body.cm-full-game #scr-cards.showing-game .letter-keys,body.cm-full-game #scr-cards.showing-game .controls,body.cm-full-game #scr-cards.showing-game .stats,body.cm-full-game #scr-cards.showing-game .howto,body.cm-full-game #scr-cards.showing-game .btnrow,body.cm-full-game #scr-cards.showing-game #cm-stage{background-color:#000000 !important;background-image:none !important;}
+body.cm-full-game #scr-cards.showing-game .stats,body.cm-full-game #scr-cards.showing-game .stats span{color:#FFFFFF !important;}
+body.cm-full-game #scr-cards.showing-game .stats b,body.cm-full-game #moves,body.cm-full-game #time,body.cm-full-game #best,body.cm-full-game #cm-score{color:#FFFFFF !important;}
+#scr-cards#scr-cards.showing-game .stats b{color:#FFFFFF !important;}
 </style>
 </head>
 <body>
@@ -1856,6 +1873,7 @@ body:has(#scr-cards.showing-game)>footer .cta a{color:#4DC3FF}
   /* ---------- Navigation ---------- */
   var screens = { home:$("scr-home"), cards:$("scr-cards"), numbers:$("scr-numbers"), pictures:$("scr-pictures"), opus:$("scr-opus"), numeral:$("scr-numeral"), sequence:$("scr-sequence"), dotted:$("scr-dotted") };
   function show(name){
+    if(name !== "cards"){ document.body.classList.remove("cm-full-game"); }
     if(window.msCountdownCancel) window.msCountdownCancel();
     if(name !== "dotted" && typeof dtStop === "function") dtStop();
     for(var k in screens) screens[k].classList.toggle("on", k===name);
@@ -2008,7 +2026,7 @@ body:has(#scr-cards.showing-game)>footer .cta a{color:#4DC3FF}
   function cmEnterGame(){
     $("cm-cover").style.display="none";
     $("cm-game").style.display="block";
-    $("scr-cards").classList.add("showing-game");
+    $("scr-cards").classList.add("showing-game"); document.body.classList.add("cm-full-game");
     window.scrollTo(0,0);
     window.msCountdown(buildCards);
   }
@@ -2020,7 +2038,7 @@ body:has(#scr-cards.showing-game)>footer .cta a{color:#4DC3FF}
     window.msCountdownCancel(); stopTimer();
     $("cm-game").style.display="none";
     $("cm-cover").style.display="block";
-    $("scr-cards").classList.remove("showing-game");
+    $("scr-cards").classList.remove("showing-game"); document.body.classList.remove("cm-full-game");
     window.scrollTo(0,0);
   });
 
