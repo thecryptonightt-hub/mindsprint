@@ -1140,6 +1140,47 @@
 #scr-cards#scr-cards.showing-game #board{background:none !important;box-shadow:none;padding:0 2px;width:100%;box-sizing:border-box}
 #scr-cards#scr-cards.showing-game .btnrow{width:100%;margin:14px 0 28px;padding-bottom:4px}
 #scr-cards#scr-cards.showing-game .btnrow .big-btn{height:auto;min-height:48px;padding:12px 10px;line-height:1.25;text-align:center}
+
+/* LIVE FINAL CARD MATCH 2026-10-31: approved standalone prototype transplant, Card Match only.
+   Source: card-match-final-prototype (original v10/v11 buttons + whole black + final header/equal-width fix).
+   Scoped ONLY to #scr-cards.showing-game, so the cover and all other games are untouched.
+   This block is placed last in the stylesheet, so it overrides the earlier f2d2502 tie-break
+   (which set difficulty buttons to height:auto/min-height:48px) back to the approved 42px,
+   and overrides the v11 partial black (section only) with whole-black gameplay.
+   - Whole black: section, #cm-game, header, namerow, letter-keys, controls, stats, howto,
+     btnrow and #cm-stage are black; body background is black via :has (progressive
+     enhancement; if :has is ignored, the section itself is still full-width black).
+   - No narrow column: section expands to full viewport width (negative side margins
+     cancel the body's 14px side padding), padding 6px 8px 0 like the prototype wrap,
+     min-height 100dvh so no sky strip shows below the buttons within the gameplay view.
+   - Original buttons: Cover/Name/Letters 42px, difficulty 42px/13px, New Game/Scores 48px/16px,
+     title 22px fully visible, white stats. Hub header/footer remain in the DOM (not deleted);
+     they are only given a black background during Card Match gameplay via :has. */
+body:has(#scr-cards.showing-game){background:#000000;background-image:none;color:#FFFFFF}
+body:has(#scr-cards.showing-game)>header,body:has(#scr-cards.showing-game)>footer{background:#000000;background-image:none}
+body:has(#scr-cards.showing-game)>footer .lockup{color:#FFFFFF}
+body:has(#scr-cards.showing-game)>footer .cta{color:#E6E1FF}
+body:has(#scr-cards.showing-game)>footer .cta a{color:#4DC3FF}
+#scr-cards#scr-cards.showing-game{width:calc(100% + 28px);max-width:none;margin-left:-14px;margin-right:-14px;padding:6px 8px 0;min-height:100dvh;background-color:#000000;background-image:none;color:#FFFFFF;overflow-x:hidden;box-sizing:border-box}
+#scr-cards#scr-cards.showing-game #cm-game{width:100%;max-width:none;margin:0 auto;padding:0;box-sizing:border-box}
+#scr-cards#scr-cards.showing-game header{width:100%;display:flex;align-items:center;gap:6px;flex-wrap:nowrap;background-color:#000000;background-image:none}
+#scr-cards#scr-cards.showing-game header h1{font-size:22px;white-space:nowrap;flex:1 1 auto;min-width:0;text-align:center;color:#FFE600;text-shadow:0 0 10px rgba(255,230,0,.95),0 0 26px rgba(255,230,0,.55)}
+#scr-cards#scr-cards.showing-game #cm-motionToggle{display:inline-block;flex:0 0 auto;height:32px;padding:0 6px;font-size:11px;border-radius:10px;white-space:nowrap;color:#14213D}
+#scr-cards#scr-cards.showing-game .ms-namerow{width:100%;display:flex;gap:6px;align-items:center;margin:6px 0;flex-wrap:nowrap;background-color:#000000;background-image:none}
+#scr-cards#scr-cards.showing-game .ms-namerow .back{flex:1 1 0;min-width:0;height:42px;padding:0 8px;font-size:14px;border-radius:12px;white-space:nowrap;text-align:center}
+#scr-cards#scr-cards.showing-game .ms-namerow input{flex:1 1 0;min-width:0;height:42px;font-size:16px;border-radius:12px;padding:0 8px;text-align:center}
+#scr-cards#scr-cards.showing-game .lettersBtn{flex:1 1 0;min-width:0;height:42px;padding:0 8px;font-size:15px;border-radius:12px;white-space:nowrap;text-align:center}
+#scr-cards#scr-cards.showing-game .letter-keys{margin:4px 0;background-color:#000000;background-image:none}
+#scr-cards#scr-cards.showing-game .controls{width:100%;display:flex;gap:6px;margin:6px 0;flex-wrap:nowrap;background-color:#000000;background-image:none}
+#scr-cards#scr-cards.showing-game .controls button{flex:1 1 0;min-width:0;height:42px;min-height:42px;padding:4px 2px;font-size:13px;line-height:1.15;border-radius:12px;white-space:normal;display:block;align-items:initial;justify-content:initial;text-align:center;overflow:hidden;background:linear-gradient(180deg,#5F4A5B,#503556);color:#FFFFFF}
+#scr-cards#scr-cards.showing-game .controls button.active{background:linear-gradient(180deg,#7DD7FF,#00A8FF);color:#FFFFFF}
+#scr-cards#scr-cards.showing-game .stats{width:100%;margin:4px 0;gap:4px;align-items:center;color:#FFFFFF;background-color:#000000;background-image:none}
+#scr-cards#scr-cards.showing-game .stats b{color:#FFFFFF}
+#scr-cards#scr-cards.showing-game .howto{width:100%;color:#FFFFFF;background-color:#000000;background-image:none}
+#scr-cards#scr-cards.showing-game #cm-stage{margin-top:6px;padding-bottom:12px;background-color:#000000}
+#scr-cards#scr-cards.showing-game #board{background:none !important;box-shadow:none;padding:0 2px;width:100%;box-sizing:border-box;margin-top:2px}
+#scr-cards#scr-cards.showing-game .btnrow{width:100%;display:flex;gap:10px;justify-content:stretch;margin:10px 0 0;padding-bottom:0;background-color:#000000;background-image:none}
+#scr-cards#scr-cards.showing-game .btnrow .big-btn{flex:1 1 0;min-width:0;height:48px;min-height:48px;padding:0 8px;font-size:16px;border-radius:12px;text-align:center}
 </style>
 </head>
 <body>
