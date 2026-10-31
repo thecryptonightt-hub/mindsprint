@@ -1791,6 +1791,8 @@
     $("pr-cards").textContent = cb ? ("Best (Medium): "+cb.moves+" moves") : "";
     var dd = store("mindsprint-resume-dotted");
     $("pr-dotted").textContent = (dd && dd > 0) ? ("Progress: level "+(dd+1)+" of 10") : "";
+    var ob = msLoadBoard("mindsprint-top10-opus");
+    $("pr-opus").textContent = (ob && ob.length && ob[0].score > 0) ? ("Best: "+ob[0].score+" pts") : "";
   }
 
   /* ---------- 5-second flash timer with bar ---------- */
@@ -2456,6 +2458,7 @@ function check() {
     const aSecs = Math.max(0, Math.round((Date.now() - answerStart) / 1000));
     const bonus = Math.max(0, 30 - 2 * aSecs);
     score += level * 10 + bonus; streak++; opusPending = true;
+    store("mindsprint-opus-checkpoint", {level: level, score: score, time: Date.now()});
     $('resultLine').textContent = `✅ Exactly right — ${target}!`;
     $('resultLine').className = 'result good';
     $('resultDetail').textContent = multi
@@ -2501,6 +2504,7 @@ msOpusSave = function(){
   if(!opusPending || score <= 0) return null;
   const entry = {name: msName(), score: score, time: opusStart ? Math.floor((Date.now() - opusStart) / 1000) : 0, detail: 'Level ' + level};
   const r = msAddScore('mindsprint-top10-opus', entry);
+  try{ localStorage.removeItem("mindsprint-opus-checkpoint"); }catch(e){}
   opusPending = false; score = 0; streak = 0; rounds = 0;
   if(opusTimer){ clearInterval(opusTimer); opusTimer = null; }
   opusStart = 0; updateScore();
@@ -2510,6 +2514,7 @@ $('opus-scores').addEventListener('click', function(){ msShowBoard('mindsprint-t
 syncPaces();
 updateScore();
   if(typeof FREE_MODE === "undefined" || !FREE_MODE){ var rl = Number(store("mindsprint-resume-opus")); if(Number.isInteger(rl) && rl >= 1 && rl <= 5){ level = rl; document.querySelectorAll('#levels .lvl-btn').forEach(function(x){ x.classList.toggle('active', +x.dataset.level === rl); }); refreshGo(); syncPaces(); } }
+  (function(){ var cp = store("mindsprint-opus-checkpoint"); if(cp && typeof cp.score === "number" && cp.score > 0){ score = cp.score; opusPending = true; if(typeof FREE_MODE === "undefined" || !FREE_MODE){ var cl = Number(cp.level); if(Number.isInteger(cl) && cl >= 1 && cl <= 5){ level = cl; document.querySelectorAll('#levels .lvl-btn').forEach(function(x){ x.classList.toggle('active', +x.dataset.level === cl); }); refreshGo(); syncPaces(); } } updateScore(); } })();
 
   })();
 
