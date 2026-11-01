@@ -1255,6 +1255,65 @@ body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .cover-sub{margin:
 body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .play-btn{margin:0 auto 10px !important;height:52px !important;}
 body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .cover-grid{gap:6px !important;}
 body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .cover-hint{margin:8px 0 0 !important;color:#FFFFFF !important;}
+
+/* NUMERAL BLOCK PUBLISH 2026-11-01: approved v3 prototype transplant, scoped to #scr-numeral only.
+   Cover = full-width yellow, no abacus badge. Gameplay = black panel, white letters, muted purple
+   letter keys, level picker (arrows + square + Enter), Scores at Motion size. Other games untouched. */
+@keyframes nb-drift{from{transform:translate(0,0)}to{transform:translate(14px,10px)}}
+body.nb-cover-full{margin:0 !important;padding:0 !important;display:block !important;background:linear-gradient(180deg,#FFE95C 0%,#FFD500 45%,#FFB35C 100%) !important;background-image:linear-gradient(180deg,#FFE95C 0%,#FFD500 45%,#FFB35C 100%) !important;min-height:100dvh !important;color:#14213D !important;}
+body.nb-cover-full>header{display:none !important;}
+body.nb-cover-full>footer{display:none !important;}
+body.nb-cover-full #scr-numeral:not(.showing-game){display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;align-items:flex-start !important;align-content:flex-start !important;width:100% !important;max-width:none !important;margin:0 !important;padding:10px 12px 0 !important;min-height:100dvh !important;background:linear-gradient(180deg,#FFE95C 0%,#FFD500 45%,#FFB35C 100%) !important;background-image:linear-gradient(180deg,#FFE95C 0%,#FFD500 45%,#FFB35C 100%) !important;color:#14213D !important;box-sizing:border-box !important;overflow-x:hidden !important;}
+body.nb-cover-full #scr-numeral:not(.showing-game)>button.back[data-back]{flex:1 1 0 !important;min-width:0 !important;align-self:auto !important;height:32px !important;min-height:32px !important;margin:0 4px 0 0 !important;padding:0 8px !important;font-size:14px !important;background:linear-gradient(180deg,#FF5CA8,#FF2E88) !important;color:#FFFFFF !important;border:0 !important;border-radius:12px !important;}
+body.nb-cover-full #scr-numeral:not(.showing-game)>.ms-music-btn{flex:1 1 0 !important;min-width:0 !important;height:32px !important;min-height:32px !important;margin:0 0 0 4px !important;padding:0 8px !important;font-size:14px !important;background:#FFFFFF !important;color:#14213D !important;border:2px solid #00A8FF !important;border-radius:12px !important;display:flex !important;align-items:center !important;justify-content:center !important;}
+body.nb-cover-full #scr-numeral:not(.showing-game)>#nb-cover{flex:1 1 100% !important;width:100% !important;display:block !important;}
+body.nb-cover-full #scr-numeral:not(.showing-game)>#nb-game{display:none !important;}
+body.nb-cover-full #scr-numeral:not(.showing-game) #nb-cover .cover-stage{position:relative !important;overflow:hidden !important;width:100% !important;margin-top:0 !important;padding:0 12px 12px !important;border-radius:0 !important;box-sizing:border-box !important;background-color:#FFD500 !important;background-image:linear-gradient(180deg,#FFE95C 0%,#FFD500 45%,#FFB35C 100%) !important;}
+#nb-cover .cover-title{font-size:38px !important;margin:6px 0 2px !important;letter-spacing:.5px !important;color:#FFFFFF !important;}
+#nb-cover .cover-sub{margin:0 0 12px !important;color:#14213D !important;}
+#nb-cover .cover-grid{grid-template-columns:repeat(5,1fr) !important;gap:8px !important;}
+#nb-cover .cover-tile{aspect-ratio:1/1 !important;border-radius:12px !important;display:flex !important;align-items:center !important;justify-content:center !important;font-size:22px !important;font-weight:900 !important;cursor:pointer !important;box-shadow:inset 0 2px 0 rgba(255,255,255,.5),inset 0 -3px 0 rgba(0,0,0,.12),0 3px 8px rgba(0,0,0,.35) !important;}
+#nb-cover .c0{background:linear-gradient(180deg,#FF7AB8,#FF2E88) !important;color:#FFFFFF !important;}
+#nb-cover .c1{background:linear-gradient(180deg,#FFE95C,#FFD500) !important;color:#14213D !important;}
+#nb-cover .c2{background:linear-gradient(180deg,#5CF2A0,#00C853) !important;color:#14213D !important;}
+#nb-cover .c3{background:linear-gradient(180deg,#7DD7FF,#00A8FF) !important;color:#14213D !important;}
+#nb-cover .c4{background:linear-gradient(180deg,#B07CFF,#7B2FF7) !important;color:#FFFFFF !important;}
+#nb-cover .c5{background:linear-gradient(180deg,#FFB35C,#FF8A00) !important;color:#14213D !important;}
+#nb-cover .c6{background:linear-gradient(180deg,#5CE8DC,#00B8A8) !important;color:#14213D !important;}
+#nb-cover .c7{background:linear-gradient(180deg,#FF7A6B,#FF3131) !important;color:#FFFFFF !important;}
+#nb-cover .glow{position:absolute !important;border-radius:50% !important;pointer-events:none !important;opacity:.55 !important;animation:nb-drift 9s ease-in-out infinite alternate !important;}
+#nb-cover .glow1{width:90px !important;height:90px !important;left:-20px !important;top:10% !important;background:radial-gradient(circle,#FF2E88,transparent 70%) !important;}
+#nb-cover .glow2{width:70px !important;height:70px !important;right:-15px !important;bottom:15% !important;background:radial-gradient(circle,#00A8FF,transparent 70%) !important;animation-duration:12s !important;}
+#nb-cover .play-btn{margin:16px auto 0 !important;padding:16px !important;height:auto !important;font-size:21px !important;background:linear-gradient(180deg,#FF5CA8,#FF2E88) !important;color:#FFFFFF !important;border:0 !important;border-radius:16px !important;box-shadow:0 4px 14px rgba(255,46,136,.5) !important;}
+#nb-cover .cover-hint{margin:14px 0 0 !important;color:#14213D !important;}
+body.motion-off #nb-cover .glow{animation-play-state:paused !important;}
+/* Gameplay: black, white letters, muted purple letter keys. Grid background/borders untouched (blue line kept). */
+body.nb-full-game{padding-bottom:12px !important;background:#000000 !important;background-image:none !important;color:#FFFFFF !important;}
+#scr-numeral.showing-game{background:#000000 !important;background-image:none !important;color:#FFFFFF !important;padding-top:0 !important;}
+#scr-numeral.showing-game #nb-cover{display:none !important;}
+#scr-numeral.showing-game>button.back[data-back],#scr-numeral.showing-game>.ms-music-btn{display:none !important;}
+#scr-numeral.showing-game #nb-game{display:block !important;width:100% !important;}
+#scr-numeral:not(.showing-game) #nb-game{display:none !important;}
+#scr-numeral .title-row{display:flex !important;align-items:flex-end !important;gap:8px !important;margin-top:0 !important;}
+#scr-numeral .title-row h1{flex:1 !important;white-space:nowrap !important;text-align:center !important;font-size:22px !important;margin:0 !important;color:#FFE600 !important;text-shadow:0 0 10px rgba(255,230,0,.95),0 0 26px rgba(255,230,0,.55) !important;}
+#scr-numeral #nb-motionToggle{flex:none !important;height:32px !important;min-height:32px !important;padding:0 6px !important;font-size:11px !important;border-radius:10px !important;border:2px solid #14213D !important;background:#FFFFFF !important;color:#14213D !important;font-weight:800 !important;cursor:pointer !important;white-space:nowrap !important;margin-top:4px !important;}
+#scr-numeral.showing-game .nb-panel{background:#000000 !important;border:2px solid #38BDF8 !important;box-shadow:0 0 18px rgba(0,168,255,.25) !important;position:relative !important;overflow:hidden !important;}
+#scr-numeral .nb-panel .glow{position:absolute !important;border-radius:50% !important;pointer-events:none !important;opacity:.55 !important;animation:nb-drift 9s ease-in-out infinite alternate !important;}
+#scr-numeral .nb-panel .glow1{width:90px !important;height:90px !important;left:-20px !important;top:10% !important;background:radial-gradient(circle,#FF2E88,transparent 70%) !important;}
+#scr-numeral .nb-panel .glow2{width:70px !important;height:70px !important;right:-15px !important;bottom:15% !important;background:radial-gradient(circle,#00A8FF,transparent 70%) !important;animation-duration:12s !important;}
+#scr-numeral .nb-panel>*:not(.glow){position:relative !important;z-index:1 !important;}
+body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !important;}
+#scr-numeral.showing-game .nb-panel .subtitle,#scr-numeral.showing-game .nb-panel #nb-clockline,#scr-numeral.showing-game .nb-panel .instructions,#scr-numeral.showing-game .nb-panel .hint,#scr-numeral.showing-game .nb-panel #nb-feedback{color:#FFFFFF !important;}
+#scr-numeral.showing-game .letter-keys .lkey{background:#2A1B3D !important;color:#FFFFFF !important;border-color:#7B2FF7 !important;}
+/* Level picker: arrows + one square + Enter underneath, replacing the old 10-button grid. */
+#scr-numeral .levels{flex-direction:column !important;align-items:center !important;gap:8px !important;}
+#scr-numeral .level-picker-row{display:flex !important;gap:10px !important;align-items:center !important;justify-content:center !important;}
+#scr-numeral .levels button.level-arrow{width:52px !important;height:52px !important;min-height:52px !important;font-size:20px !important;border:2px solid #E3C6FF !important;background:linear-gradient(180deg,#5F4A5B,#503556) !important;color:#FFFFFF !important;box-shadow:0 0 12px rgba(123,47,247,.5) !important;border-radius:14px !important;}
+#scr-numeral .level-box{width:64px !important;height:64px !important;border-radius:14px !important;border:2px solid #E3C6FF !important;background:linear-gradient(180deg,#7DD7FF,#00A8FF) !important;color:#FFFFFF !important;font-weight:900 !important;font-size:24px !important;display:flex !important;align-items:center !important;justify-content:center !important;box-shadow:0 0 0 3px #FFE600,0 0 20px rgba(0,168,255,.85) !important;}
+#scr-numeral .level-box.done{background:linear-gradient(180deg,#5CF2A0,#00C853) !important;border-color:#00E676 !important;color:#14213D !important;}
+#scr-numeral .levels button.level-enter{width:188px !important;max-width:188px !important;height:48px !important;min-height:48px !important;font-size:18px !important;background:linear-gradient(180deg,#FF5CA8,#FF2E88) !important;border-color:#FF2E88 !important;color:#FFFFFF !important;border-radius:12px !important;}
+/* Scores button at the bottom = Motion button size. */
+#scr-numeral #nb-scores{height:32px !important;min-height:32px !important;padding:0 6px !important;font-size:11px !important;border-radius:10px !important;background:#FFFFFF !important;color:#14213D !important;border:2px solid #00A8FF !important;}
 </style>
 </head>
 <body>
@@ -1623,10 +1682,20 @@ body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .cover-hint{margin
   <!-- NUMERAL BLOCK -->
   <section class="screen" id="scr-numeral">
     <button class="back" data-back>← All games</button>
-    <h2 class="gtitle">🧮 Numeral Block</h2>
-    
-    <div class="ms-namerow">
-      <span>Name:</span>
+<section id="nb-cover">
+      <div class="cover-stage">
+        <div class="glow glow1"></div><div class="glow glow2"></div>
+        <div class="cover-title">Numeral Block</div>
+        <p class="cover-sub">Fill the grid so every row and column adds up.</p>
+        <div class="cover-grid" id="nb-coverGrid"></div>
+        <button class="play-btn" id="nb-playBtn" type="button">▶&nbsp; Play</button>
+        <p class="cover-hint">Tap Play — or tap any tile — to start.</p>
+      </div>
+    </section>
+    <section id="nb-game" style="display:none">
+      <div class="title-row"><button id="nb-motionToggle" type="button">Motion: ON</button><h1>Numeral Block</h1></div>
+<div class="ms-namerow">
+      <button class="back" id="nb-backBtn" type="button">← Cover</button>
       <input id="nm-numeral-field" type="text" maxlength="12" placeholder="Your name" autocomplete="off" aria-label="Name for the scoreboard">
       <button type="button" class="lettersBtn" id="nm-numeral-letters">⌨ Letters</button>
     </div>
@@ -1662,6 +1731,7 @@ body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .cover-hint{margin
     </div>
     <p class="howto">Fill the grid so every row and column adds up to the printed totals. Ten levels, from 5 blanks to 14.</p>
     <div class="nb-panel">
+      <div class="glow glow1"></div><div class="glow glow2"></div>
     <p class="subtitle" id="nb-subtitle">Level 1 of 10</p>
   <p class="subtitle" id="nb-clockline">⏱ 0:00 • Score: 0</p>
   <div class="levels" id="nb-levels"></div>
@@ -1679,7 +1749,7 @@ body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .cover-hint{margin
   </div>
     </div>
 <div class="unlock-box" id="unlock-numeral"><div class="t">🔒 Levels 2–10 are in the full version</div><div class="d">Level 1 is always free. Unlock all 10 Numeral Block levels — plus all levels of every other game.</div><a class="buy-btn" href="https://square.link/u/SpgyprsK" target="_blank" rel="noopener">Unlock all levels — $1.99</a><div class="d" style="margin-top:10px;">📱 Mindsprint is a web browser game — it’s not in the App Store. After you pay, open the full game in your phone’s browser and add it to your home screen (Share → Add to Home Screen) so it opens like an app.</div></div>
-
+    </section>
   </section>
   <!-- FIND THE SEQUENCE -->
   <section class="screen" id="scr-sequence">
@@ -1930,7 +2000,7 @@ body.pf-cover-full #scr-pictures:not(.showing-game) #pf-cover .cover-hint{margin
   /* ---------- Navigation ---------- */
   var screens = { home:$("scr-home"), cards:$("scr-cards"), numbers:$("scr-numbers"), pictures:$("scr-pictures"), opus:$("scr-opus"), numeral:$("scr-numeral"), sequence:$("scr-sequence"), dotted:$("scr-dotted") };
   function show(name){
-    if(name !== "cards"){ document.body.classList.remove("cm-full-game"); document.body.classList.remove("cm-cover-full"); } else if(!$("scr-cards").classList.contains("showing-game")){ document.body.classList.add("cm-cover-full"); } if(name !== "pictures"){ document.body.classList.remove("pf-cover-full"); } else if(!$("scr-pictures").classList.contains("showing-game")){ document.body.classList.add("pf-cover-full"); }
+    if(name !== "cards"){ document.body.classList.remove("cm-full-game"); document.body.classList.remove("cm-cover-full"); } else if(!$("scr-cards").classList.contains("showing-game")){ document.body.classList.add("cm-cover-full"); } if(name !== "pictures"){ document.body.classList.remove("pf-cover-full"); } else if(!$("scr-pictures").classList.contains("showing-game")){ document.body.classList.add("pf-cover-full"); } if(name !== "numeral"){ document.body.classList.remove("nb-cover-full"); document.body.classList.remove("nb-full-game"); } else if(!$("scr-numeral").classList.contains("showing-game")){ document.body.classList.add("nb-cover-full"); }
     if(window.msCountdownCancel) window.msCountdownCancel();
     if(name !== "dotted" && typeof dtStop === "function") dtStop();
     for(var k in screens) screens[k].classList.toggle("on", k===name);
@@ -2726,25 +2796,37 @@ function rowComplete(r){ return state[r].every(v=>v!==null); }
 function colComplete(c){ return state.every(r=>r[c]!==null); }
 function blankCount(){ let n=0; lv().given.forEach(r=>r.forEach(v=>{ if(v===null) n++; })); return n; }
 
+let nbPending = 0;
 function renderLevels(){
   const el = document.getElementById('nb-levels');
+  nbPending = Math.max(0, Math.min(9, nbPending));
   el.innerHTML = '';
-  NB_LEVELS.forEach((_, i)=>{
-    const b = document.createElement('button');
-    b.textContent = (done.indexOf(i) >= 0 ? '\u2713' : '') + (i+1);
-    if (i === current) b.className = 'current' + (done.indexOf(i) >= 0 ? ' done' : '');
-    else if (done.indexOf(i) >= 0) b.className = 'done';
-    b.addEventListener('click', ()=>{
-      if (FREE_MODE && i !== 0) { showUnlock('unlock-numeral'); loadLevel(0); return; }
-      hideUnlock('unlock-numeral'); store("mindsprint-resume-numeral", i); window.msCountdown(function(){ loadLevel(i); });
-    });
-    el.appendChild(b);
-  });
+  const row = document.createElement('div');
+  row.className = 'level-picker-row';
+  const prev = document.createElement('button');
+  prev.className = 'level-arrow';
+  prev.textContent = '\u25c0';
+  prev.setAttribute('aria-label', 'Previous level');
+  prev.addEventListener('click', ()=>{ if (nbPending > 0) { nbPending--; renderLevels(); } });
+  const box = document.createElement('div');
+  box.className = 'level-box' + (done.indexOf(nbPending) >= 0 ? ' done' : '');
+  box.textContent = (done.indexOf(nbPending) >= 0 ? '\u2713' : '') + (nbPending+1);
+  const next = document.createElement('button');
+  next.className = 'level-arrow';
+  next.textContent = '\u25b6';
+  next.setAttribute('aria-label', 'Next level');
+  next.addEventListener('click', ()=>{ if (nbPending < 9) { nbPending++; renderLevels(); } });
+  row.appendChild(prev); row.appendChild(box); row.appendChild(next);
+  const enter = document.createElement('button');
+  enter.className = 'level-enter';
+  enter.textContent = 'Enter';
+  enter.addEventListener('click', ()=>{ if (typeof FREE_MODE !== 'undefined' && FREE_MODE && nbPending !== 0) { showUnlock('unlock-numeral'); loadLevel(0); return; } hideUnlock('unlock-numeral'); store("mindsprint-resume-numeral", nbPending); window.msCountdown(function(){ loadLevel(nbPending); }); });
+  el.appendChild(row); el.appendChild(enter);
   document.getElementById('nb-subtitle').textContent = 'Level ' + (current+1) + ' of 10';
 }
 
 function loadLevel(i){
-  current = i;
+  current = i; nbPending = i;
   state = lv().given.map(r => r.slice());
   selected = null;
   document.getElementById('nb-feedback').textContent = '';
@@ -2855,6 +2937,49 @@ document.getElementById('nb-nextBtn').addEventListener('click', ()=>{
 });
 
 
+
+  /* ---------- Numeral Block cover <-> game (publish 2026-11-01, approved v3 prototype) ---------- */
+  function nbCandyClass(r,c){ return 'c' + ((r*3 + c*2) % 8); }
+  (function(){
+    var sample = [[7,3,9,2,5],[4,8,1,6,3],[9,2,7,5,4],[1,6,8,3,9],[5,4,2,9,7]];
+    var g = document.getElementById('nb-coverGrid');
+    for(var r=0;r<5;r++) for(var c=0;c<5;c++){
+      var d = document.createElement('div');
+      d.className = 'cover-tile ' + nbCandyClass(r,c);
+      d.textContent = sample[r][c];
+      d.setAttribute('data-enter', '1');
+      g.appendChild(d);
+    }
+  })();
+  var nbMotionOn = true;
+  document.getElementById('nb-motionToggle').addEventListener('click', function(){
+    nbMotionOn = !nbMotionOn;
+    document.body.classList.toggle('motion-off', !nbMotionOn);
+    document.getElementById('nb-motionToggle').textContent = nbMotionOn ? 'Motion: ON' : 'Motion: OFF';
+  });
+  function nbEnterGame(){
+    document.getElementById('nb-cover').style.display = 'none';
+    document.getElementById('nb-game').style.display = 'block';
+    document.getElementById('scr-numeral').classList.add('showing-game');
+    document.body.classList.remove('nb-cover-full');
+    document.body.classList.add('nb-full-game');
+    window.scrollTo(0,0);
+    window.msCountdown(function(){ loadLevel(current); });
+  }
+  document.getElementById('nb-playBtn').addEventListener('click', nbEnterGame);
+  document.querySelectorAll('#nb-coverGrid [data-enter]').forEach(function(el){
+    el.addEventListener('click', nbEnterGame);
+  });
+  document.getElementById('nb-backBtn').addEventListener('click', function(){
+    if(window.msCountdownCancel) window.msCountdownCancel();
+    if(nbClockTimer){ clearInterval(nbClockTimer); nbClockTimer = null; }
+    document.getElementById('nb-game').style.display = 'none';
+    document.getElementById('nb-cover').style.display = 'block';
+    document.getElementById('scr-numeral').classList.remove('showing-game');
+    document.body.classList.remove('nb-full-game');
+    document.body.classList.add('nb-cover-full');
+    window.scrollTo(0,0);
+  });
   /* ---------- Find the Sequence (merged from v7) ---------- */
   var SEQ_LEVELS = [
     {nums:[2,4,6,8], answer:10, hint:"Each number goes up by the same amount.", explain:"Add 2 each time: 2, 4, 6, 8, 10."},
