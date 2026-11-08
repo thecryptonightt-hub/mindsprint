@@ -840,8 +840,81 @@
 #scr-sequence #seq-keypad button:nth-child(3n+2){background:#FFF7CC}
 #scr-sequence #seq-keypad button:nth-child(3n+3){background:#D6EFFF}
 /* --- Dotted Mind: arena corners tinted with the four dot colors (no position color-coding on the answer buttons) --- */
-#scr-dotted #dt-arena{background:radial-gradient(at 0% 0%,rgba(0,230,118,.22),transparent 60%),radial-gradient(at 100% 0%,rgba(255,49,49,.22),transparent 60%),radial-gradient(at 0% 100%,rgba(0,168,255,.22),transparent 60%),radial-gradient(at 100% 100%,rgba(255,213,0,.22),transparent 60%),#E8F8FF}
+#scr-dotted #dt-arena{background:radial-gradient(at 0% 0%,rgba(0,230,118,.30),transparent 60%),radial-gradient(at 100% 0%,rgba(255,49,49,.30),transparent 60%),radial-gradient(at 0% 100%,rgba(0,168,255,.30),transparent 60%),radial-gradient(at 100% 100%,rgba(255,213,0,.30),transparent 60%),#000000}
 #scr-dotted .dt-corner-grid button{border:3px solid #38BDF8;background:#fff;box-shadow:0 3px 10px rgba(20,60,120,.15)}
+/* --- Dotted Mind gameplay numbers styled like Numeral Block gameplay cells (NB button.cell: 12px radius, 2px light border, shadow, 24px/900, per-column candy gradients) --- */
+#scr-dotted .dt-num-tile{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 8px;border-radius:10px;border:2px solid rgba(255,255,255,.6);background:linear-gradient(180deg,#FF8A00,#FFD500);color:#14213D;font-size:22px;font-weight:900;line-height:1;box-shadow:0 3px 8px rgba(0,0,0,.35);vertical-align:middle;}
+#scr-dotted .dt-num-tile.t-pink{background:linear-gradient(180deg,#FF6B6B,#FF2E88);color:#fff;}
+#scr-dotted .dt-num-tile.t-green{background:linear-gradient(180deg,#00E676,#00A8FF);color:#14213D;}
+#scr-dotted .dt-num-tile.t-blue{background:linear-gradient(180deg,#00D4FF,#00A8FF);color:#14213D;}
+#scr-dotted .dt-num-tile.t-purple{background:linear-gradient(180deg,#C084FC,#7B2FF7);color:#fff;}
+#scr-dotted .dt-num-tile.sm{min-width:28px;height:28px;padding:0 7px;font-size:18px;border-radius:9px;}
+/* Total answer input: NB candy tile */
+#scr-dotted #dt-ans{background:linear-gradient(180deg,#FF8A00,#FFD500);color:#14213D;border:2px solid rgba(255,255,255,.6);border-radius:12px;font-size:28px;font-weight:900;box-shadow:0 3px 8px rgba(0,0,0,.35);}
+#scr-dotted #dt-ans::placeholder{color:rgba(20,33,61,.45);}
+/* Digit pad keys: NB candy tiles, gradients cycling like NB columns */
+#scr-dotted .dt-pad button{border-radius:12px;border:2px solid rgba(255,255,255,.5);box-shadow:0 3px 8px rgba(0,0,0,.35);font-size:24px;font-weight:900;}
+#scr-dotted .dt-pad button:nth-child(5n+1){background:linear-gradient(180deg,#FF8A00,#FFD500);color:#14213D;}
+#scr-dotted .dt-pad button:nth-child(5n+2){background:linear-gradient(180deg,#FF6B6B,#FF2E88);color:#fff;}
+#scr-dotted .dt-pad button:nth-child(5n+3){background:linear-gradient(180deg,#00E676,#00A8FF);color:#14213D;}
+#scr-dotted .dt-pad button:nth-child(5n+4){background:linear-gradient(180deg,#00D4FF,#00A8FF);color:#14213D;}
+#scr-dotted .dt-pad button:nth-child(5n+5){background:linear-gradient(180deg,#C084FC,#7B2FF7);color:#fff;}
+#scr-dotted .dt-pad button:active{filter:brightness(1.15);}
+/* Level picker numbers: NB candy tiles; selected = NB level-box blue gradient + yellow glow ring */
+#scr-dotted #dt-levelRow .lvl{border-radius:12px;border:2px solid rgba(255,255,255,.5);box-shadow:0 3px 8px rgba(0,0,0,.35);font-size:20px;font-weight:900;color:#14213D;}
+#scr-dotted #dt-levelRow .lvl:nth-child(5n+1){background:linear-gradient(180deg,#FF8A00,#FFD500);}
+#scr-dotted #dt-levelRow .lvl:nth-child(5n+2){background:linear-gradient(180deg,#FF6B6B,#FF2E88);color:#fff;}
+#scr-dotted #dt-levelRow .lvl:nth-child(5n+3){background:linear-gradient(180deg,#00E676,#00A8FF);}
+#scr-dotted #dt-levelRow .lvl:nth-child(5n+4){background:linear-gradient(180deg,#00D4FF,#00A8FF);}
+#scr-dotted #dt-levelRow .lvl:nth-child(5n+5){background:linear-gradient(180deg,#C084FC,#7B2FF7);color:#fff;}
+#scr-dotted #dt-levelRow .lvl.sel{background:linear-gradient(180deg,#7DD7FF,#00A8FF) !important;color:#fff !important;box-shadow:0 0 0 3px #FFE600,0 0 20px rgba(0,168,255,.85) !important;}
+/* Corner answer buttons: NB candy tiles tinted with each corner's own color (matches arena corner tints) */
+#scr-dotted .dt-corner-grid button{border-radius:12px;border:2px solid rgba(255,255,255,.5);box-shadow:0 3px 8px rgba(0,0,0,.35);font-weight:900;}
+#scr-dotted .dt-corner-grid button:nth-child(1){background:linear-gradient(180deg,#00E676,#00A8FF);color:#14213D;}
+#scr-dotted .dt-corner-grid button:nth-child(2){background:linear-gradient(180deg,#FF6B6B,#FF2E88);color:#fff;}
+#scr-dotted .dt-corner-grid button:nth-child(3){background:linear-gradient(180deg,#00D4FF,#00A8FF);color:#14213D;}
+#scr-dotted .dt-corner-grid button:nth-child(4){background:linear-gradient(180deg,#FF8A00,#FFD500);color:#14213D;}
+#scr-dotted .dt-corner-grid button.dt-picked{outline:3px solid #FFE600;outline-offset:-3px;box-shadow:0 0 0 3px #FFE600,0 0 16px rgba(255,213,0,.8);}
+/* 2026-11-08 (Bryan): countdown lives INSIDE gameplay, never on cover; gameplay BLACK; big rainbow Start; no Motion button (none existed in Dotted Mind); tight one-screen layout. */
+#scr-dotted #dt-gameWrap{background:#000000;border-radius:16px;padding:10px 8px 14px;}
+#scr-dotted .gtitle{color:#FFFFFF;}
+#scr-dotted .ms-namerow{color:#FFFFFF;}
+#scr-dotted .howto{color:#C9D6FF;margin:0 0 6px;font-size:13px;line-height:1.35;}
+#scr-dotted .dt-panel{background:#000000;border-color:#2A2A4A;box-shadow:none;padding:10px;}
+#scr-dotted .dt-level-line{color:#FFD500;margin:0 0 6px;}
+#scr-dotted #dt-arena{border-color:#FFFFFF;}
+#scr-dotted .dt-status{color:#FFFFFF;margin:6px 0 2px;}
+#scr-dotted .dt-q{color:#FFFFFF;margin:8px 0 4px;}
+#scr-dotted .dt-countdown{color:#FFD500;}
+#scr-dotted #dt-startBtn{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);color:#fff;font-size:22px;font-weight:900;padding:14px 34px;border:0;border-radius:999px;cursor:pointer;box-shadow:0 0 18px rgba(255,46,136,.55);text-shadow:0 1px 2px rgba(0,0,0,.45);width:100%;margin:0 0 8px;}
+#scr-dotted #dt-levelRow .lvl{height:38px;min-width:38px;padding:0 8px;}
+#scr-dotted .dt-actions{margin-top:8px;}
+#scr-dotted .dt-level-row{margin-bottom:6px;}
+#scr-dotted .dt-pad{margin:6px auto;}
+#scr-dotted #dt-scoresBtn{margin-top:8px;}
+/* 2026-11-08 (Bryan): arena at TOP of gameplay — no scroll to see the game; white buttons -> rainbow candy; cut spacing/unnecessary text. */
+#scr-dotted .gtitle{margin:2px 0 4px;font-size:20px;}
+#scr-dotted #dt-gameWrap{padding:6px 8px 10px;}
+#scr-dotted .dt-panel{padding:8px;}
+#scr-dotted .dt-level-line{margin:0 0 4px;}
+#scr-dotted #dt-startBtn{padding:12px 34px;margin:0 0 6px;}
+#scr-dotted .dt-status{margin:4px 0 2px;}
+#scr-dotted .dt-level-row{margin:4px 0 0;gap:6px;}
+#scr-dotted #dt-levelRow .lvl{height:34px;min-width:34px;}
+#scr-dotted .ms-namerow{margin:6px 0 2px;}
+#scr-dotted #nm-dotted-letters{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);color:#fff;border:0;font-weight:900;text-shadow:0 1px 2px rgba(0,0,0,.45);box-shadow:0 0 10px rgba(255,46,136,.4);}
+/* 2026-11-08 (Bryan): the "Your name" field is rainbow candy too — same gradient as the other buttons. */
+#scr-dotted #nm-dotted-field{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);color:#fff;border:0;font-weight:900;text-shadow:0 1px 2px rgba(0,0,0,.45);box-shadow:0 0 10px rgba(255,46,136,.4);}
+#scr-dotted #nm-dotted-field::placeholder{color:rgba(255,255,255,.85);text-shadow:0 1px 2px rgba(0,0,0,.45);}
+#scr-dotted .dt-actions button{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);color:#fff;border:0;font-weight:900;text-shadow:0 1px 2px rgba(0,0,0,.45);box-shadow:0 0 10px rgba(255,46,136,.4);}
+#scr-dotted #dt-resetBtn{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);color:#fff;border:0;text-shadow:0 1px 2px rgba(0,0,0,.45);box-shadow:0 0 10px rgba(255,46,136,.4);}
+#scr-dotted #dt-scoresBtn{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);color:#fff;border:0;text-shadow:0 1px 2px rgba(0,0,0,.45);box-shadow:0 0 10px rgba(255,46,136,.4);margin-top:6px;}
+#scr-dotted .letter-keys .lkey{border:2px solid rgba(255,255,255,.5);box-shadow:0 3px 8px rgba(0,0,0,.35);}
+#scr-dotted .letter-keys .lkey:nth-child(5n+1){background:linear-gradient(180deg,#FF8A00,#FFD500);color:#14213D;}
+#scr-dotted .letter-keys .lkey:nth-child(5n+2){background:linear-gradient(180deg,#FF6B6B,#FF2E88);color:#fff;}
+#scr-dotted .letter-keys .lkey:nth-child(5n+3){background:linear-gradient(180deg,#00E676,#00A8FF);color:#14213D;}
+#scr-dotted .letter-keys .lkey:nth-child(5n+4){background:linear-gradient(180deg,#00D4FF,#00A8FF);color:#14213D;}
+#scr-dotted .letter-keys .lkey:nth-child(5n+5){background:linear-gradient(180deg,#C084FC,#7B2FF7);color:#fff;}
 
 
 /* ===== V3 FIX (review only - presentation, no logic) ===== */
@@ -1582,6 +1655,76 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
 
 #op-cover .cover-note{font-size:13px;color:#A79ED1;}
 
+/* ===== NUMBER FLASH COVER (new, 2026-11-08) — candy cover like Opus ===== */
+#nf-cover{width:100%;max-width:520px;border-radius:20px;overflow:hidden;text-align:center;
+  background:#000000;border:2px solid #FFD500;
+  box-shadow:0 0 24px rgba(255,46,136,.45),0 0 12px rgba(0,168,255,.35);
+  padding:26px 16px 22px;margin:8px auto;}
+#nf-cover h2{margin:0;font-size:32px;color:#FFD500;letter-spacing:1px;
+  text-shadow:0 0 14px rgba(255,213,0,.55);}
+#nf-cover .nf-sub{color:#fff;font-size:15px;margin:10px 0 0;line-height:1.45;}
+#nf-cover .nf-nums{display:flex;justify-content:center;gap:8px;margin:18px 0 4px;flex-wrap:wrap;}
+#nf-cover .nf-nums span{width:52px;height:52px;border-radius:14px;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;font-weight:900;line-height:1;}
+#nf-cover .nf-nums span:nth-child(1){color:#FF2E88;box-shadow:0 0 14px rgba(255,46,136,.85);}
+#nf-cover .nf-nums span:nth-child(2){color:#FF8A00;box-shadow:0 0 14px rgba(255,138,0,.85);}
+#nf-cover .nf-nums span:nth-child(3){color:#00C853;box-shadow:0 0 14px rgba(0,230,118,.85);}
+#nf-cover .nf-nums span:nth-child(4){color:#00A8FF;box-shadow:0 0 14px rgba(0,168,255,.85);}
+#nf-cover .nf-nums span:nth-child(5){color:#7C4DFF;box-shadow:0 0 14px rgba(124,77,255,.85);}
+#nf-cover .nf-candy{display:flex;justify-content:center;gap:10px;margin:14px 0 2px;}
+#nf-cover .nf-candy span{width:14px;height:14px;border-radius:50%;}
+#nf-cover .nf-levels{color:#B9E7FF;font-size:14px;margin:10px 0 0;}
+#nf-cover .nf-best{color:#FFD500;font-size:15px;font-weight:700;margin:8px 0 0;}
+#nf-cover .nf-play{margin-top:18px;background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);
+  color:#fff;font-size:20px;font-weight:800;padding:14px 34px;border:0;border-radius:999px;cursor:pointer;
+  box-shadow:0 0 18px rgba(255,46,136,.55);}
+#nf-cover .nf-how{color:#fff;opacity:.85;font-size:13px;margin:12px 0 0;}
+/* Number Flash cover <-> game (hub pattern, same as Opus). */
+#scr-numbers:not(.showing-game) #nf-game{display:none;}
+#scr-numbers.showing-game #nf-cover{display:none;}
+#scr-numbers.showing-game>button.back[data-back]{display:none;}
+
+/* ---- Find the Sequence cover (review prototype): same black candy cover as Opus ---- */
+#seq-cover{width:100%;max-width:520px;border-radius:20px;overflow:hidden;text-align:center;
+  background:#000000;
+  border:2px solid #FFD500;box-shadow:0 0 24px rgba(255,46,136,.45),0 0 12px rgba(0,168,255,.35);padding:26px 16px 22px;margin:8px auto;}
+#seq-cover h2{margin:0;font-size:30px;color:#FFD500;letter-spacing:1px;text-shadow:0 0 14px rgba(255,213,0,.55);}
+#seq-cover p{color:#FFFFFF;font-size:15px;margin:8px 0 0;}
+#seq-cover .cover-candy{display:flex;justify-content:center;gap:10px;margin:12px 0 2px;}
+#seq-cover .cover-candy span{width:14px;height:14px;border-radius:50%;}
+#seq-cover .seq-cover-tiles{display:flex;justify-content:center;gap:8px;margin:16px 0 4px;}
+#seq-cover .seq-cover-tiles span{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+#seq-cover .seq-cover-tiles span.q{background:#2A2200;color:#FFD500;border:2px dashed #FFD500;text-shadow:0 0 10px rgba(255,213,0,.6);}
+#seq-cover .cover-best{font-size:14px;font-weight:700;color:#FFD500;margin:10px 0 0;}
+#seq-cover .cover-play{margin-top:16px;background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);color:#fff;font-size:20px;font-weight:800;
+  padding:14px 34px;border:0;border-radius:999px;cursor:pointer;box-shadow:0 0 18px rgba(255,46,136,.55);text-shadow:0 1px 2px rgba(0,0,0,.45);}
+#seq-cover .cover-note{font-size:13px;color:#A79ED1;}
+  /* ---- Dotted Mind cover (2026-11-08, from review prototype; hub adaptation: the prototype's "#scr-dotted{display:flex}" and ".back{display:none}" are NOT used — the hub controls the section and the back button stays) ---- */
+  #dt-gameWrap{width:100%;display:flex;flex-direction:column;align-items:center;}
+  #dt-cover{width:100%;max-width:520px;border-radius:20px;overflow:hidden;text-align:center;
+    background:#000000;border:2px solid #FFD500;
+    box-shadow:0 0 24px rgba(255,46,136,.45),0 0 12px rgba(0,168,255,.35);
+    padding:26px 16px 22px;margin:8px auto;}
+  #dt-cover .dt-cover-arena{width:150px;height:150px;margin:2px auto 10px;border-radius:16px;overflow:hidden;
+    display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+    border:3px solid #FFFFFF;box-shadow:0 0 18px rgba(0,230,118,.5);}
+  #dt-cover .dt-cover-q{position:relative;}
+  #dt-cover .dt-cover-dot{position:absolute;width:12px;height:12px;border-radius:50%;
+    box-shadow:0 0 8px rgba(255,255,255,.7);animation:dtCoverPop 1.6s ease-in-out infinite;}
+  @keyframes dtCoverPop{0%,100%{transform:scale(.7);opacity:.75}50%{transform:scale(1.2);opacity:1}}
+  #dt-cover .dt-cover-title{margin:0;font-size:34px;font-weight:900;letter-spacing:1px;
+    text-shadow:0 0 14px rgba(255,213,0,.35);}
+  #dt-cover .cover-candy{display:flex;justify-content:center;gap:10px;margin:12px 0 2px;}
+  #dt-cover .cover-candy span{width:14px;height:14px;border-radius:50%;}
+  #dt-cover .dt-cover-tag{color:#FFFFFF;font-size:16px;font-weight:700;margin:10px 0 0;}
+  #dt-cover .dt-cover-sub{color:#C9B8FF;font-size:14px;margin:6px 0 0;}
+  #dt-cover .dt-cover-best{color:#FFD500;font-size:15px;font-weight:800;margin:8px 0 0;min-height:20px;}
+  #dt-cover .cover-play{margin-top:16px;background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);
+    color:#fff;font-size:20px;font-weight:800;padding:14px 34px;border:0;border-radius:999px;cursor:pointer;
+    box-shadow:0 0 18px rgba(255,46,136,.55);text-shadow:0 1px 2px rgba(0,0,0,.45);}
+  #dt-cover .cover-note{font-size:13px;color:#A79ED1;margin:12px 0 0;}
+
 /* ---- BLACK GAMEPLAY (prototype: restores the live dark look over v3's later light overrides) ---- */
 #scr-opus .score{color:var(--yl);}
 
@@ -1864,6 +2007,22 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   <!-- NUMBER FLASH -->
   <section class="screen" id="scr-numbers">
     <button class="back" data-back>← All games</button>
+    <div id="nf-cover">
+      <h2>&#128290; Number Flash</h2>
+      <p class="nf-sub">Watch the numbers flash by.<br>Remember them. Type them back.</p>
+      <div class="nf-nums"><span>7</span><span>3</span><span>9</span><span>4</span><span>2</span></div>
+      <div class="nf-candy">
+        <span style="background:#FF2E88"></span><span style="background:#FFD500"></span>
+        <span style="background:#00E676"></span><span style="background:#00A8FF"></span>
+        <span style="background:#7C4DFF"></span>
+      </div>
+      <p class="nf-levels">16 levels &middot; 1 to 4 digits &middot; 5 seconds to memorize</p>
+      <p class="nf-best" id="nf-best"></p>
+      <button class="nf-play" id="nf-cover-play" type="button">&#9654; Play</button>
+      <p class="nf-how">Memorize in 5 seconds &mdash; then type the numbers back in the same order.</p>
+    </div>
+    <div id="nf-game">
+    <button class="back" id="num-back-cover" type="button">← Cover</button>
     <h2 class="gtitle">🔢 Number Flash</h2>
     
     <div class="ms-namerow">
@@ -1928,6 +2087,7 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
       <button class="big-btn" id="num-start">▶ Start</button>
       <button class="big-btn gold" id="num-next" style="display:none;">Next level →</button>
       <button class="ghost-btn" id="num-scores">🏆 Scores</button>
+    </div>
     </div>
   </section>
 
@@ -2191,6 +2351,22 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   <!-- FIND THE SEQUENCE -->
   <section class="screen" id="scr-sequence">
     <button class="back" data-back>← All games</button>
+    <div id="seq-cover">
+      <h2>🔍 Find the Sequence</h2>
+      <div class="cover-candy" aria-hidden="true"><span style="background:#FF2E88"></span><span style="background:#FFC93C"></span><span style="background:#00E676"></span><span style="background:#00A8FF"></span><span style="background:#B388FF"></span></div>
+      <div class="seq-cover-tiles" aria-hidden="true">
+        <span style="background:linear-gradient(180deg,#FF7AB8,#FF2E88);color:#FFFFFF">2</span>
+        <span style="background:linear-gradient(180deg,#FFE95C,#FFD500);color:#14213D">4</span>
+        <span style="background:linear-gradient(180deg,#5CF2A0,#00C853);color:#14213D">6</span>
+        <span style="background:linear-gradient(180deg,#7DD7FF,#00A8FF);color:#FFFFFF">8</span>
+        <span class="q">?</span>
+      </div>
+      <p>Find the pattern. What&rsquo;s the next number?</p>
+      <p class="cover-best" id="seq-coverBest">No scores yet &mdash; play to set one!</p>
+      <button class="cover-play" id="seqCoverPlay" type="button">▶ Play</button>
+      <p class="cover-note">10 levels &mdash; from simple steps to the tricky book puzzle.</p>
+    </div>
+    <div id="seq-game" style="display:none">
     <h2 class="gtitle">🔍 Find the Sequence</h2>
     
     <div class="ms-namerow">
@@ -2260,6 +2436,7 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
       <button class="ghost" id="seq-scoresBtn">🏆 Scores</button>
       <button class="ghost" id="seq-resetBtn">Reset</button>
     </div>
+    </div>
   </section>
   <footer>
     <div class="lockup">MENTAL DYNAMICS · A MENTAL FITNESS COMPANY</div>
@@ -2290,8 +2467,53 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   <!-- DOTTED MIND -->
   <section class="screen" id="scr-dotted">
     <button class="back" data-back>← All games</button>
-    <h2 class="gtitle">🔵 Dotted Mind</h2>
+<div id="dt-cover">
+<div class="dt-cover-arena" aria-hidden="true"><div class="dt-cover-q" style="background:rgba(0,230,118,.35)"><span class="dt-cover-dot" style="left:10%;top:12%;background:#00E676;animation-delay:0.0s"></span><span class="dt-cover-dot" style="left:38%;top:30%;background:#00E676;animation-delay:0.22s"></span><span class="dt-cover-dot" style="left:22%;top:48%;background:#00E676;animation-delay:0.44s"></span></div><div class="dt-cover-q" style="background:rgba(255,49,49,.35)"><span class="dt-cover-dot" style="left:12%;top:40%;background:#FF3131;animation-delay:0.66s"></span><span class="dt-cover-dot" style="left:34%;top:14%;background:#FF3131;animation-delay:0.88s"></span><span class="dt-cover-dot" style="left:40%;top:44%;background:#FF3131;animation-delay:1.1s"></span></div><div class="dt-cover-q" style="background:rgba(0,168,255,.35)"><span class="dt-cover-dot" style="left:14%;top:26%;background:#00A8FF;animation-delay:1.32s"></span><span class="dt-cover-dot" style="left:36%;top:46%;background:#00A8FF;animation-delay:1.54s"></span><span class="dt-cover-dot" style="left:30%;top:10%;background:#00A8FF;animation-delay:1.76s"></span></div><div class="dt-cover-q" style="background:rgba(255,213,0,.35)"><span class="dt-cover-dot" style="left:10%;top:44%;background:#FFD500;animation-delay:1.98s"></span><span class="dt-cover-dot" style="left:38%;top:18%;background:#FFD500;animation-delay:2.2s"></span><span class="dt-cover-dot" style="left:26%;top:34%;background:#FFD500;animation-delay:2.42s"></span></div></div>
+  <h2 class="dt-cover-title"><span style="color:#00E676">D</span><span style="color:#FFD500">o</span><span style="color:#FF3131">t</span><span style="color:#00A8FF">t</span><span style="color:#A855F7">e</span><span style="color:#00E676">d</span> <span style="color:#FF2E88">M</span><span style="color:#FFD500">i</span><span style="color:#00A8FF">n</span><span style="color:#00E676">d</span></h2>
+  <div class="cover-candy" aria-hidden="true"><span style="background:#00E676"></span><span style="background:#FF3131"></span><span style="background:#00A8FF"></span><span style="background:#FFD500"></span><span style="background:#FF2E88"></span></div>
+  <p class="dt-cover-tag">Watch the dots. Remember the corners.</p>
+  <p class="dt-cover-sub">10 levels &bull; 25&ndash;250 dots &bull; 5 seconds to memorize</p>
+  <p class="dt-cover-best" id="dt-coverBest"></p>
+  <button class="cover-play" id="dt-coverPlay" type="button">&#9654; Play</button>
+  <p class="cover-note">Tap Play to enter &mdash; then hit Start for 3-2-1-GO!</p>
+</div>
+<div id="dt-gameWrap" style="display:none">
+<h2 class="gtitle">🔵 Dotted Mind</h2>
     
+    <div class="dt-panel">
+      <div class="dt-level-line" id="dt-levelLine">Level 1 of 10</div>
+      <button id="dt-startBtn">▶ Start</button>
+      <div id="dt-arena">
+        <div id="dt-dividers"><div class="dt-dv dt-dv-v"></div><div class="dt-dv dt-dv-h"></div></div>
+        <div id="dt-dotLayer"></div>
+      </div>
+      <div class="dt-status" id="dt-status">Tap Start and count every dot.</div>
+      <div id="dt-answerBox" class="dt-hidden">
+        <div class="dt-q">How many dots did you see?</div>
+        <input id="dt-ans" type="text" maxlength="3" placeholder="?" autocomplete="off">
+        <div id="dt-feedback"></div>
+        <div class="dt-pad" id="dt-pad">
+          <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
+          <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
+          <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
+          <button id="dt-padBack">←</button><button data-digit="0">0</button><button id="dt-padClear">C</button>
+        </div>
+      </div>
+      <div id="dt-cornerBox" class="dt-hidden">
+        <div class="dt-q" id="dt-cornerQ"></div>
+        <div id="dt-cornerFeedback"></div>
+        <div class="dt-corner-grid" id="dt-cornerGrid">
+          <button data-corner="0">↖ Top left</button><button data-corner="1">↗ Top right</button>
+          <button data-corner="2">↙ Bottom left</button><button data-corner="3">↘ Bottom right</button>
+        </div>
+      </div>
+      <div class="dt-actions">
+        <button id="dt-checkBtn" class="dt-hidden">Check</button>
+        <button id="dt-nextBtn" class="dt-hidden">Next Level →</button>
+        <button id="dt-resetBtn">Reset</button>
+      </div>
+    </div>
+    <div class="dt-level-row" id="dt-levelRow"></div>
     <div class="ms-namerow">
       <span>Name:</span>
       <input id="nm-dotted-field" type="text" maxlength="12" placeholder="Your name" autocomplete="off" aria-label="Name for the scoreboard">
@@ -2327,43 +2549,8 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
       <button type="button" class="lkey" data-letter=" ">␣</button>
       <button type="button" class="lkey" id="nm-dotted-back">⌫</button>
     </div>
-    <p class="howto">Dots appear one by one in the four corners and stay. Each color lives in only one corner &mdash; but which corner changes every round. After the last dot, you get 5 seconds to memorize &mdash; then they vanish and you answer: how many dots, and which corner held each color.</p>
-    <div class="dt-level-row" id="dt-levelRow"></div>
-    <div class="dt-panel">
-      <div class="dt-level-line" id="dt-levelLine">Level 1 of 10</div>
-      <div id="dt-arena">
-        <div id="dt-dividers"><div class="dt-dv dt-dv-v"></div><div class="dt-dv dt-dv-h"></div></div>
-        <div id="dt-dotLayer"></div>
-      </div>
-      <div class="dt-status" id="dt-status">Tap Start and count every dot.</div>
-      <div id="dt-answerBox" class="dt-hidden">
-        <div class="dt-q">How many dots did you see?</div>
-        <input id="dt-ans" type="text" maxlength="3" placeholder="?" autocomplete="off">
-        <div id="dt-feedback"></div>
-        <div class="dt-pad" id="dt-pad">
-          <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
-          <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
-          <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
-          <button id="dt-padBack">←</button><button data-digit="0">0</button><button id="dt-padClear">C</button>
-        </div>
-      </div>
-      <div id="dt-cornerBox" class="dt-hidden">
-        <div class="dt-q" id="dt-cornerQ"></div>
-        <div id="dt-cornerFeedback"></div>
-        <div class="dt-corner-grid" id="dt-cornerGrid">
-          <button data-corner="0">↖ Top left</button><button data-corner="1">↗ Top right</button>
-          <button data-corner="2">↙ Bottom left</button><button data-corner="3">↘ Bottom right</button>
-        </div>
-      </div>
-      <div class="dt-actions">
-        <button id="dt-startBtn">▶ Start Level</button>
-        <button id="dt-checkBtn" class="dt-hidden">Check</button>
-        <button id="dt-nextBtn" class="dt-hidden">Next Level →</button>
-        <button id="dt-resetBtn">Reset</button>
-      </div>
-    </div>
     <button class="big-btn" id="dt-scoresBtn">🏆 Dotted Mind — Top 10</button>
-
+</div>
   </section>
 
 <script>
@@ -2445,8 +2632,8 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   $("go-pictures").addEventListener("click", function(){ show("pictures"); });
   $("go-opus").addEventListener("click", function(){ show("opus"); });
   $("go-numeral").addEventListener("click", function(){ show("numeral"); });
-  $("go-sequence").addEventListener("click", function(){ show("sequence"); seqEnsureStarted(); });
-  $("go-dotted").addEventListener("click", function(){ show("dotted"); });
+  $("go-sequence").addEventListener("click", function(){ show("sequence"); window.seqShowCover(); });
+  $("go-dotted").addEventListener("click", function(){ show("dotted"); window.dtShowCover(); });
 
   function renderHomeProgress(){
     var n = store("mg_numbers_unlocked") || 1;
@@ -2763,6 +2950,23 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
     if(numSel < 16){ numSel++; store("mindsprint-resume-numbers", numSel); renderNumLevels(); numStageLabel(); resetNumStage(); $("num-start").click(); }
   });
   renderNumLevels(); numStageLabel(); resetNumStage();
+  /* ===== NUMBER FLASH COVER wiring (2026-11-08; hub adaptation of the review prototype: the cover lives inside #scr-numbers and .showing-game toggles cover/game, like Opus — the prototype hid the whole section instead, which cannot work in the hub) ===== */
+  var nfCover = $("nf-cover");
+  (function nfBest(){
+    try{
+      var b = msLoadBoard("mindsprint-top10-numberflash");
+      if(b && b.length && b[0].score > 0) $("nf-best").textContent = "\u2605 Best: " + b[0].score + " pts";
+    }catch(e){}
+  })();
+  $("nf-cover-play").addEventListener("click", function(){
+    $("scr-numbers").classList.add("showing-game");
+    window.scrollTo(0,0);
+  });
+  $("num-back-cover").addEventListener("click", function(){
+    if(window.msCountdownCancel) window.msCountdownCancel();
+    $("scr-numbers").classList.remove("showing-game");
+    window.scrollTo(0,0);
+  });
 
   /* ================= PICTURE FLASH (merged from graphics review v11 — animals, dark look) ================= */
 /* ---------- Motion toggle (Card Match v10) ---------- */
@@ -3566,6 +3770,36 @@ document.getElementById('nb-nextBtn').addEventListener('click', ()=>{
     window.msCountdown(function(){ seqGameStart = Date.now(); seqRender(); seqStartClock(); });
   }
   window.seqEnsureStarted = seqEnsureStarted;
+  window.seqCoverReset = function(){ seqStarted = false; };
+
+  /* ---------- Find the Sequence cover (review prototype) ---------- */
+  function seqCoverBest(){
+    var b = [];
+    try{ b = JSON.parse(localStorage.getItem("mindsprint-top10-sequence") || "[]"); }catch(e){ b = []; }
+    var el = document.getElementById("seq-coverBest");
+    if(!el) return;
+    if(b && b.length){ var top = b[0]; el.textContent = "\uD83C\uDFC6 Best: " + top.score + " pts" + (top.name ? " \u2014 " + top.name : ""); }
+    else el.textContent = "No scores yet \u2014 play to set one!";
+  }
+  window.seqShowCover = function(){
+    if(window.msCountdownCancel) window.msCountdownCancel();
+    if(window.seqCoverReset) window.seqCoverReset();
+    var c = document.getElementById("seq-cover"), g = document.getElementById("seq-game");
+    if(c) c.style.display = "block";
+    if(g) g.style.display = "none";
+    seqCoverBest();
+    window.scrollTo(0,0);
+  };
+  (function(){
+    var p = document.getElementById("seqCoverPlay");
+    if(p) p.addEventListener("click", function(){
+      var c = document.getElementById("seq-cover"), g = document.getElementById("seq-game");
+      if(c) c.style.display = "none";
+      if(g) g.style.display = "block";
+      window.scrollTo(0,0);
+      seqEnsureStarted();
+    });
+  })();
   $("seq-keypad").addEventListener("click", function(e){
     var btn = e.target.closest ? e.target.closest("button") : null;
     if(!btn || seqSolved) return;
@@ -3688,7 +3922,14 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
     if (countdown) {
       var span = document.createElement('span');
       span.className = 'dt-countdown';
-      span.textContent = text;
+      var m = text.match(/^(.*?)(\d+)\s*$/);
+      if (m) {
+        span.appendChild(document.createTextNode(m[1]));
+        var tile = document.createElement('span');
+        tile.className = 'dt-num-tile';
+        tile.textContent = m[2];
+        span.appendChild(tile);
+      } else { span.textContent = text; }
       dtStatusEl.appendChild(span);
     } else { dtStatusEl.textContent = text; }
   }
@@ -3697,6 +3938,9 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
     dtCornerBox.classList.add('dt-hidden');
     dtCheckBtn.classList.add('dt-hidden');
     dtNextBtn.classList.add('dt-hidden');
+  }
+  function dtSetLevelLine() {
+    dtLevelLine.innerHTML = 'Level <span class="dt-num-tile sm">' + (dtLevel + 1) + '</span> of <span class="dt-num-tile sm t-blue">10</span>';
   }
   function dtRenderLevels() {
     dtLevelRow.innerHTML = '';
@@ -3712,7 +3956,7 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
           dtClearTimers(); dtClearDots(); dtLevel = idx;
           store("mindsprint-resume-dotted", dtLevel);
           dtHideAnswerUI(); dtStartBtn.classList.remove('dt-hidden');
-          dtLevelLine.textContent = 'Level ' + (dtLevel + 1) + ' of 10';
+          dtSetLevelLine();
           dtPhase = 'idle'; dtSetStatus('Tap Start and count every dot.');
           dtRenderLevels();
         });
@@ -3725,7 +3969,7 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
     dtTarget = DT_LEVEL_COUNTS[dtLevel];
     dtMapping = dtShuffleMapping();
     dtTotalGuess = null; dtCornerStep = 0; dtCornerAnswers = [];
-    dtLevelLine.textContent = 'Level ' + (dtLevel + 1) + ' of 10';
+    dtSetLevelLine();
     dtHideAnswerUI(); dtStartBtn.classList.add('dt-hidden');
     dtAns.value = ''; dtFeedback.textContent = ''; dtFeedback.className = '';
     dtCornerFeedback.textContent = ''; dtCornerFeedback.className = '';
@@ -3826,7 +4070,7 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
     dtCornerFeedback.className = '';
     var btns = dtCornerGrid.querySelectorAll('button');
     for (var i = 0; i < btns.length; i++) btns[i].classList.remove('dt-picked');
-    dtSetStatus('Corner ' + (dtCornerStep + 1) + ' of 4');
+    dtStatusEl.innerHTML = 'Corner <span class="dt-num-tile sm">' + (dtCornerStep + 1) + '</span> of <span class="dt-num-tile sm t-blue">4</span>';
     dtCornerBox.classList.remove('dt-hidden');
   }
   function dtAnswerCorner(cornerIdx) {
@@ -3865,7 +4109,7 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
     if (passed) {
       var secs = Math.max(0, Math.round((Date.now() - dtLevelStart) / 1000));
       var sb = msAddScore("mindsprint-top10-dotted", {name: msName(), score: msPointsFor(secs), time: secs, detail: "Level " + (dtLevel + 1)});
-      dtFeedback.innerHTML = 'Correct! ' + dtTarget + ' dots, and ' + cornersOk + ' of 4 corners right.' + (sb.madeIt ? ' \u2014 \ud83c\udfc6 New top-10!' : '');
+      dtFeedback.innerHTML = 'Correct! <span class="dt-num-tile">' + dtTarget + '</span> dots, and <span class="dt-num-tile t-green">' + cornersOk + '</span> of 4 corners right.' + (sb.madeIt ? ' \u2014 \ud83c\udfc6 New top-10!' : '');
       dtFeedback.className = 'dt-ok';
       if (dtLevel >= DT_LEVEL_COUNTS.length - 1) {
         dtPhase = 'won';
@@ -3877,7 +4121,7 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
         dtNextBtn.textContent = 'Next Level \u2192';
       }
     } else {
-      dtFeedback.innerHTML = 'Not quite \u2014 it was ' + dtTarget + ' dots (' + cornersOk + ' of 4 corners right). ' + dtMappingText() + '. Try again!';
+      dtFeedback.innerHTML = 'Not quite \u2014 it was <span class="dt-num-tile">' + dtTarget + '</span> dots (<span class="dt-num-tile t-green">' + cornersOk + '</span> of 4 corners right). ' + dtMappingText() + '. Try again!';
       dtFeedback.className = 'dt-no';
       dtNextAction = 'retry';
       dtNextBtn.textContent = 'Retry Level';
@@ -3895,7 +4139,7 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
   function dtResetGame() {
     dtClearTimers(); dtClearDots(); dtLevel = 0; store("mindsprint-resume-dotted", 0);
     dtPhase = 'idle';
-    dtLevelLine.textContent = 'Level 1 of 10';
+    dtSetLevelLine();
     dtHideAnswerUI(); dtStartBtn.classList.remove('dt-hidden');
     dtAns.value = ''; dtFeedback.textContent = ''; dtFeedback.className = '';
     dtCornerFeedback.textContent = ''; dtCornerFeedback.className = '';
@@ -3932,8 +4176,32 @@ loadLevel((function(){ var r = Number(store("mindsprint-resume-numeral")); retur
   dtResetBtn.addEventListener('click', dtResetGame);
   document.getElementById('dt-scoresBtn').addEventListener('click', function(){ msShowBoard('mindsprint-top10-dotted', 'Dotted Mind \u2014 Top 10'); });
   if(!dtFree){ var rd0 = Number(store("mindsprint-resume-dotted")); if(Number.isInteger(rd0) && rd0 >= 0 && rd0 < DT_LEVEL_COUNTS.length) dtLevel = rd0; }
-  dtLevelLine.textContent = 'Level ' + (dtLevel + 1) + ' of 10';
+  dtSetLevelLine();
   dtRenderLevels();
+  /* ---- Dotted Mind cover wiring (2026-11-08, from review prototype; hub adaptation: dtShowCover resets to the cover on every entry from the home screen, since the hub has no back-to-cover button) ---- */
+  function dtCoverBest(){
+    var bestEl = document.getElementById('dt-coverBest');
+    try {
+      var b = msLoadBoard('mindsprint-top10-dotted');
+      if (b && b.length && bestEl) bestEl.textContent = '\uD83C\uDFC6 Best: ' + b[0].score + ' pts \u2014 ' + b[0].name;
+    } catch (e) {}
+  }
+  window.dtShowCover = function(){
+    if(window.msCountdownCancel) window.msCountdownCancel();
+    var c = document.getElementById('dt-cover'), g = document.getElementById('dt-gameWrap');
+    if(c) c.style.display = '';
+    if(g) g.style.display = 'none';
+    dtCoverBest();
+    window.scrollTo(0,0);
+  };
+  (function(){
+    dtCoverBest();
+    document.getElementById('dt-coverPlay').addEventListener('click', function(){
+      /* 2026-11-08 (Bryan): Play only ENTERS the gameplay — no countdown, no round. Countdown runs on Start inside the gameplay. */
+      document.getElementById('dt-cover').style.display = 'none';
+      document.getElementById('dt-gameWrap').style.display = 'flex';
+    });
+  })();
 
   /* ---- Resume where you left off (full build only; free stays on level 1) ---- */
   if(typeof FREE_MODE === "undefined" || !FREE_MODE){
