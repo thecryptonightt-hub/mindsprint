@@ -1690,6 +1690,110 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
 #scr-numbers.showing-game #nf-cover{display:none;}
 #scr-numbers.showing-game>button.back[data-back]{display:none;}
 
+/* ===== NUMBER FLASH COVER-FULL (2026-11-14) — same hub pattern as Card Match / Picture Flash / Numeral Block: hide the hub header + footer on the cover only, slim back+Music row, black card starts near the top. Gameplay untouched (scoped to :not(.showing-game)). ===== */
+body.nf-cover-full{margin:0 !important;padding:0 !important;display:block !important;background:linear-gradient(180deg,#79CDFF,#E8F8FF) !important;background-image:linear-gradient(180deg,#79CDFF,#E8F8FF) !important;min-height:100dvh !important;color:#14213D !important;}
+body.nf-cover-full>header{display:none !important;}
+body.nf-cover-full>footer{display:none !important;}
+body.nf-cover-full #scr-numbers:not(.showing-game){display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;align-items:flex-start !important;align-content:flex-start !important;width:100% !important;max-width:none !important;margin:0 !important;padding:6px 8px 0 !important;min-height:100dvh !important;background:linear-gradient(180deg,#79CDFF,#E8F8FF) !important;background-image:linear-gradient(180deg,#79CDFF,#E8F8FF) !important;color:#14213D !important;box-sizing:border-box !important;overflow-x:hidden !important;}
+body.nf-cover-full #scr-numbers:not(.showing-game)>button.back[data-back]{flex:1 1 0 !important;min-width:0 !important;align-self:auto !important;height:38px !important;margin:0 4px 6px 0 !important;padding:0 8px !important;font-size:14px !important;}
+body.nf-cover-full #scr-numbers:not(.showing-game)>.ms-music-btn{flex:1 1 0 !important;min-width:0 !important;height:38px !important;min-height:38px !important;margin:0 0 6px 4px !important;padding:0 8px !important;font-size:14px !important;display:flex !important;align-items:center !important;justify-content:center !important;}
+body.nf-cover-full #scr-numbers:not(.showing-game)>#nf-cover{flex:1 1 100% !important;width:100% !important;display:block !important;margin-top:6px !important;}
+body.nf-cover-full #scr-numbers:not(.showing-game)>#nf-game{display:none !important;}
+
+/* ===== NUMBER FLASH CANDY NUMBERS (2026-11-14) — every number in Number Flash gameplay candy colored. Scoped to #scr-numbers only; other games untouched. ===== */
+/* Level dropdown (2026-11-14): the 16-button grid is gone — levels live in one dropdown row. Every level digit is full-strength candy; locked levels show a lock, done levels a check, never a faded digit. */
+#scr-numbers #num-level-picker{margin:6px 0 4px;}
+#scr-numbers #num-level-toggle{display:flex;align-items:center;gap:8px;width:100%;padding:11px 14px;border:2px solid #BFE3FF;border-radius:12px;background:#FFFFFF;font-size:17px;color:#14213D;cursor:pointer;text-align:left;}
+#scr-numbers #num-level-toggle #num-level-current{color:#FF2E88;font-weight:800;}
+#scr-numbers #num-level-toggle .nf-caret{margin-left:auto;color:#46607F;}
+#scr-numbers #num-levels[hidden]{display:none;}
+#scr-numbers #num-levels{max-height:264px;overflow-y:auto;margin-top:6px;border:2px solid #BFE3FF;border-radius:12px;background:#FFFFFF;}
+#scr-numbers #num-levels .nf-lvl-row{display:flex;align-items:center;gap:10px;width:100%;padding:9px 14px;border:0;border-bottom:1px solid #E8F3FF;background:#FFFFFF;font-size:16px;color:#14213D;cursor:pointer;text-align:left;}
+#scr-numbers #num-levels .nf-lvl-row:last-child{border-bottom:0;}
+#scr-numbers #num-levels .nf-lvl-num{min-width:28px;font-size:20px;font-weight:800;color:#FF2E88;}
+#scr-numbers #num-levels .nf-lvl-row:nth-child(6n+2) .nf-lvl-num{color:#FF8A00;}
+#scr-numbers #num-levels .nf-lvl-row:nth-child(6n+3) .nf-lvl-num{color:#00C853;}
+#scr-numbers #num-levels .nf-lvl-row:nth-child(6n+4) .nf-lvl-num{color:#00A8FF;}
+#scr-numbers #num-levels .nf-lvl-row:nth-child(6n+5) .nf-lvl-num{color:#7C4DFF;}
+#scr-numbers #num-levels .nf-lvl-row:nth-child(6n+6) .nf-lvl-num{color:#E11D48;}
+#scr-numbers #num-levels .nf-lvl-meta{color:#46607F;font-size:14px;}
+#scr-numbers #num-levels .nf-lvl-mark{margin-left:auto;font-size:15px;}
+#scr-numbers #num-levels .nf-lvl-row.sel{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);}
+#scr-numbers #num-levels .nf-lvl-row.sel .nf-lvl-num,#scr-numbers #num-levels .nf-lvl-row.sel .nf-lvl-meta,#scr-numbers #num-levels .nf-lvl-row.sel .nf-lvl-mark{color:#FFFFFF;}
+#scr-numbers #num-levels .nf-lvl-row.locked{cursor:default;}
+/* NUMBER FLASH GAMEPLAY TOP (2026-11-14): consolidate the top — hub header + footer hidden while Number Flash gameplay is showing, slim back+Music row, tight rows, and the top white buttons go rainbow candy. Scoped to #scr-numbers only. */
+body.nf-game-tight>header{display:none !important;}
+body.nf-game-tight>footer{display:none !important;}
+#scr-numbers #nf-title-row{position:relative;margin:0 0 2px;}
+#scr-numbers #nf-title-row .back{position:absolute;left:0;top:50%;transform:translateY(-50%);margin:0;}
+#scr-numbers #nf-title-row .gtitle{margin:0;text-align:center;}
+#scr-numbers.showing-game .gtitle{margin:0 0 2px;font-size:20px;}
+#scr-numbers.showing-game .ms-namerow{margin:4px 0 2px;}
+#scr-numbers.showing-game .howto{margin:0 0 6px;}
+#scr-numbers.showing-game .stats{margin-bottom:4px;}
+/* Rainbow candy top buttons: Levels toggle, Letters, name field, gameplay Music. */
+#scr-numbers #num-level-toggle{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);border:0;color:#FFFFFF;box-shadow:0 3px 10px rgba(255,46,136,.35);}
+#scr-numbers #num-level-toggle #num-level-current{color:#FFFFFF;}
+#scr-numbers #num-level-toggle .nf-caret{color:#FFFFFF;}
+#scr-numbers #nm-numbers-letters{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);border:0;color:#FFFFFF;}
+#scr-numbers #nm-numbers-field{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);border:0;color:#FFFFFF;}
+#scr-numbers #nm-numbers-field::placeholder{color:rgba(255,255,255,.75);}
+#scr-numbers #num-game-music{background:linear-gradient(90deg,#FF2E88,#FF8A00,#FFD500,#00E676,#00A8FF);border:0;color:#FFFFFF;}
+#scr-numbers.showing-game>.ms-music-btn{display:none !important;}
+/* NUMBER FLASH BLACK GAMEPLAY + COMPACT (2026-11-14): gameplay background black — cover stays as-is. Top buttons shorter, tighter stack, bottom buttons pulled up to the note, no dead space at the bottom. Gameplay only. */
+body.nf-game-tight{background:#000000 !important;padding-top:10px;padding-bottom:8px;}
+#scr-numbers.showing-game .gtitle{color:#FFFFFF;margin:0 0 2px;}
+#scr-numbers.showing-game .ms-namerow{color:#FFFFFF;margin:2px 0;gap:4px;}
+#scr-numbers.showing-game .howto{color:#C9D6FF;margin:0 0 4px;}
+#scr-numbers.showing-game .stats{color:#E8F3FF;margin-bottom:2px;}
+#scr-numbers.showing-game .pad-note{color:#C9D6FF;}
+#scr-numbers.showing-game .back{color:#7DD7FF;}
+#scr-numbers.showing-game .result{color:#FFFFFF;margin-top:2px;min-height:0;}
+#scr-numbers.showing-game .answer-line{color:#FFFFFF;margin-top:2px;}
+#scr-numbers.showing-game .stage{margin-top:4px;}
+#scr-numbers.showing-game .dpad{margin:6px auto 4px;}
+/* Shorter top buttons */
+#scr-numbers #nm-numbers-field{height:34px;}
+#scr-numbers #nm-numbers-letters{height:34px;}
+#scr-numbers #num-level-toggle{padding:7px 12px;}
+#scr-numbers #num-game-music{min-height:34px;padding:6px 12px;}
+/* Tighter stack + bottom buttons pulled up to the note */
+#scr-numbers #num-level-picker{margin:4px 0 3px;}
+#scr-numbers.showing-game .btn-row{margin-top:4px;}
+#scr-numbers.showing-game .btn-row .big-btn{margin-top:0;}
+#scr-numbers.showing-game .btn-row .ghost-btn{margin-top:0;}
+/* NUMBER FLASH FIT-ONE-SCREEN (2026-11-14): shorter top buttons, tighter stack, smaller stage + keypad so the whole game fits, and a buffer below Start/Scores so they never sit on the phone buttons. Gameplay only. */
+#scr-numbers #nm-numbers-field{height:30px;}
+#scr-numbers #nm-numbers-letters{height:30px;padding:0 8px;}
+#scr-numbers #num-level-toggle{padding:5px 12px;}
+#scr-numbers #num-game-music{min-height:30px;padding:5px 8px;}
+#scr-numbers.showing-game .howto{margin:0 0 2px;}
+#scr-numbers.showing-game .stats{margin-bottom:0;}
+#scr-numbers #num-level-picker{margin:2px 0;}
+#scr-numbers.showing-game .stage{min-height:140px;padding:12px;margin-top:2px;}
+#scr-numbers.showing-game .stage .num{padding:10px 8px;font-size:28px;}
+#scr-numbers.showing-game .dpad{margin:4px auto 2px;gap:8px;}
+#scr-numbers.showing-game .dpad button{height:48px;}
+#scr-numbers.showing-game{padding-bottom:64px;}
+#scr-numbers #nm-numbers-field{width:72px;flex:0 0 auto;}
+/* Flashed digits: candy cycle, same five colors as the cover's sample numbers. */
+#scr-numbers #num-stage .nums .num{color:#FF2E88;}
+#scr-numbers #num-stage .nums .num:nth-child(5n+2){color:#FF8A00;}
+#scr-numbers #num-stage .nums .num:nth-child(5n+3){color:#00C853;}
+#scr-numbers #num-stage .nums .num:nth-child(5n+4){color:#00A8FF;}
+#scr-numbers #num-stage .nums .num:nth-child(5n+5){color:#7C4DFF;}
+/* Digit keypad: candy digits, each picked to contrast its pastel tile. */
+#scr-numbers #num-pad button{color:#00A8FF;}
+#scr-numbers #num-pad button:nth-child(6n+2){color:#FF2E88;}
+#scr-numbers #num-pad button:nth-child(6n+3){color:#7C4DFF;}
+#scr-numbers #num-pad button:nth-child(6n+4){color:#FF8A00;}
+#scr-numbers #num-pad button:nth-child(6n+5){color:#00C853;}
+#scr-numbers #num-pad button:nth-child(6n+6){color:#FF2E88;}
+/* Recall clock + Score + Level label: candy. */
+#scr-numbers #num-clock{color:#00A8FF;}
+#scr-numbers #num-score{color:#FF2E88;}
+#scr-numbers #num-stage-label b{color:#FF2E88;}
+
 /* ---- Find the Sequence cover (review prototype): same black candy cover as Opus ---- */
 #seq-cover{width:100%;max-width:520px;border-radius:20px;overflow:hidden;text-align:center;
   background:#000000;
@@ -2029,13 +2133,10 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
       <p class="nf-how">Memorize in 5 seconds &mdash; then type the numbers back in the same order.</p>
     </div>
     <div id="nf-game">
-    <button class="back" id="num-back-cover" type="button">← Cover</button>
-    <h2 class="gtitle">🔢 Number Flash</h2>
-    
+    <div id="nf-title-row"><button class="back" id="num-back-cover" type="button">← Cover</button><h2 class="gtitle">🔢 Number Flash</h2></div>
     <div class="ms-namerow">
-      <span>Name:</span>
-      <input id="nm-numbers-field" type="text" maxlength="12" placeholder="Your name" autocomplete="off" aria-label="Name for the scoreboard">
-      <button type="button" class="lettersBtn" id="nm-numbers-letters">⌨ Letters</button>
+      <input id="nm-numbers-field" type="text" maxlength="12" placeholder="Name" autocomplete="off" aria-label="Name for the scoreboard">
+      <button type="button" class="lettersBtn" id="nm-numbers-letters">⌨ Letters</button><button type="button" class="ms-music-btn" id="num-game-music">🔊 Music</button>
     </div>
     <div class="letter-keys" id="nm-numbers-keys" style="display:none">
       <button type="button" class="lkey" data-letter="A">A</button>
@@ -2068,7 +2169,10 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
       <button type="button" class="lkey" id="nm-numbers-back">⌫</button>
     </div>
     <p class="howto">Memorize the numbers — you get 5 seconds — then type them back <b>in the same order</b>. Beat a level to unlock the next.</p>
-    <div class="level-grid" id="num-levels"></div>
+    <div id="num-level-picker">
+      <button type="button" id="num-level-toggle" aria-expanded="false"><span>Levels:</span> <b id="num-level-current">Level 1</b> <span class="nf-caret">▾</span></button>
+      <div id="num-levels" role="listbox" hidden></div>
+    </div>
     <div class="stats"><span id="num-stage-label"></span></div>
     <div class="stats"><span>⏱ Recall <b id="num-clock">0:00</b></span><span>Score <b id="num-score">0</b></span></div>
     <p class="howto">Score per cleared level: 100 − 2/sec recall + 10×level. Top 10 saved on this phone.</p>
@@ -2635,7 +2739,7 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   /* ---------- Navigation ---------- */
   var screens = { home:$("scr-home"), cards:$("scr-cards"), numbers:$("scr-numbers"), pictures:$("scr-pictures"), opus:$("scr-opus"), numeral:$("scr-numeral"), sequence:$("scr-sequence"), dotted:$("scr-dotted") };
   function show(name){
-    if(name !== "cards"){ document.body.classList.remove("cm-full-game"); document.body.classList.remove("cm-cover-full"); } else if(!$("scr-cards").classList.contains("showing-game")){ document.body.classList.add("cm-cover-full"); } if(name !== "pictures"){ document.body.classList.remove("pf-cover-full"); } else if(!$("scr-pictures").classList.contains("showing-game")){ document.body.classList.add("pf-cover-full"); } if(name !== "numeral"){ document.body.classList.remove("nb-cover-full"); document.body.classList.remove("nb-full-game"); } else if(!$("scr-numeral").classList.contains("showing-game")){ document.body.classList.add("nb-cover-full"); }
+    if(name !== "cards"){ document.body.classList.remove("cm-full-game"); document.body.classList.remove("cm-cover-full"); } else if(!$("scr-cards").classList.contains("showing-game")){ document.body.classList.add("cm-cover-full"); } if(name !== "pictures"){ document.body.classList.remove("pf-cover-full"); } else if(!$("scr-pictures").classList.contains("showing-game")){ document.body.classList.add("pf-cover-full"); } if(name !== "numeral"){ document.body.classList.remove("nb-cover-full"); document.body.classList.remove("nb-full-game"); } else if(!$("scr-numeral").classList.contains("showing-game")){ document.body.classList.add("nb-cover-full"); } if(name !== "numbers"){ document.body.classList.remove("nf-cover-full"); document.body.classList.remove("nf-game-tight"); } else if(!$("scr-numbers").classList.contains("showing-game")){ document.body.classList.add("nf-cover-full"); document.body.classList.remove("nf-game-tight"); } else { document.body.classList.add("nf-game-tight"); }
     if(window.msCountdownCancel) window.msCountdownCancel();
     if(name !== "dotted" && typeof dtStop === "function") dtStop();
     for(var k in screens) screens[k].classList.toggle("on", k===name);
@@ -2820,18 +2924,23 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   function numStartClock(){ numRecallStart = Date.now(); if(numClockTimer) clearInterval(numClockTimer); numClockTimer = setInterval(numTickClock, 1000); numTickClock(); }
   function numStopClock(){ if(numClockTimer){ clearInterval(numClockTimer); numClockTimer = null; } }
   function numUnlocked(){ if(FREE_MODE) return 1; return store("mg_numbers_unlocked") || 1; }
+  function toggleNumLevels(){ var l = $("num-levels"); var t = $("num-level-toggle"); if(!l || !t) return; l.hidden = !l.hidden; t.setAttribute("aria-expanded", String(!l.hidden)); var c = t.querySelector(".nf-caret"); if(c) c.textContent = l.hidden ? "▾" : "▴"; }
+  function closeNumLevels(){ var l = $("num-levels"); var t = $("num-level-toggle"); if(l) l.hidden = true; if(t){ t.setAttribute("aria-expanded","false"); var c = t.querySelector(".nf-caret"); if(c) c.textContent = "▾"; } }
   function renderNumLevels(){
-    var grid = $("num-levels"); grid.innerHTML = "";
+    var list = $("num-levels"); list.innerHTML = "";
     var un = numUnlocked();
     numLevels.forEach(function(lv, idx){
       var n = idx+1;
-      var btn = document.createElement("button");
-      btn.className = "lvl" + (n>un ? " locked" : "") + (n<un ? " done" : "") + (n===numSel ? " sel" : "");
-      btn.innerHTML = n + "<small>" + lv.count + " × " + lv.digits + "d</small>";
-      if(n<=un) btn.addEventListener("click", function(){ if(!numPlaying){ numSel = n; store("mindsprint-resume-numbers", numSel); renderNumLevels(); numStageLabel(); resetNumStage(); hideUnlock("unlock-numbers"); } });
-      else if(FREE_MODE) btn.addEventListener("click", function(){ showUnlock("unlock-numbers"); });
-      grid.appendChild(btn);
+      var row = document.createElement("button");
+      row.type = "button";
+      row.className = "nf-lvl-row" + (n>un ? " locked" : "") + (n<un ? " done" : "") + (n===numSel ? " sel" : "");
+      row.innerHTML = "<b class=\"nf-lvl-num\">" + n + "</b><span class=\"nf-lvl-meta\">" + lv.count + " × " + lv.digits + "d · " + lv.tier + "</span>" + (n<un ? "<span class=\"nf-lvl-mark\">✓</span>" : "") + (n>un ? "<span class=\"nf-lvl-mark\">🔒</span>" : "");
+      if(n<=un) row.addEventListener("click", function(){ if(!numPlaying){ numSel = n; store("mindsprint-resume-numbers", numSel); renderNumLevels(); numStageLabel(); resetNumStage(); hideUnlock("unlock-numbers"); } });
+      else if(FREE_MODE) row.addEventListener("click", function(){ showUnlock("unlock-numbers"); });
+      list.appendChild(row);
     });
+    var cur = $("num-level-current"); if(cur) cur.textContent = "Level " + numSel;
+    closeNumLevels();
   }
   function numStageLabel(){
     var lv = numLevels[numSel-1];
@@ -2856,6 +2965,7 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   }
   $("num-start").addEventListener("click", function(){
     if(numPlaying) return;
+    closeNumLevels();
     window.msCountdown(function(){
     
     var lv = numLevels[numSel-1];
@@ -2971,6 +3081,8 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
     if(numSel < 16){ numSel++; store("mindsprint-resume-numbers", numSel); renderNumLevels(); numStageLabel(); resetNumStage(); $("num-start").click(); }
   });
   renderNumLevels(); numStageLabel(); resetNumStage();
+  $("num-level-toggle").addEventListener("click", toggleNumLevels);
+  $("num-game-music").addEventListener("click", function(){ if(window.musicToggle) window.musicToggle(); });
   /* ===== NUMBER FLASH COVER wiring (2026-11-08; hub adaptation of the review prototype: the cover lives inside #scr-numbers and .showing-game toggles cover/game, like Opus — the prototype hid the whole section instead, which cannot work in the hub) ===== */
   var nfCover = $("nf-cover");
   (function nfBest(){
@@ -2981,11 +3093,16 @@ body.motion-off #scr-numeral .nb-panel .glow{animation-play-state:paused !import
   })();
   $("nf-cover-play").addEventListener("click", function(){
     $("scr-numbers").classList.add("showing-game");
+    document.body.classList.remove("nf-cover-full");
+    document.body.classList.add("nf-game-tight");
+    closeNumLevels();
     window.scrollTo(0,0);
   });
   $("num-back-cover").addEventListener("click", function(){
     if(window.msCountdownCancel) window.msCountdownCancel();
     $("scr-numbers").classList.remove("showing-game");
+    document.body.classList.add("nf-cover-full");
+    document.body.classList.remove("nf-game-tight");
     window.scrollTo(0,0);
   });
 
