@@ -1,0 +1,22 @@
+name: Rename hubs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move new hub files into place
+        run: |
+          mv play.html play/index.html
+          mv full.html full/index.html
+          git config user.name "R2"
+          git config user.email "thecryptonightt@gmail.com"
+          git add play/index.html full/index.html
+          git commit -m "Publish Number Flash polish (approved 2026-11-14)"
+          git push
